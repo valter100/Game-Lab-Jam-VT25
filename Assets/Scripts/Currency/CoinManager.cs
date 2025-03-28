@@ -3,8 +3,9 @@ using UnityEngine;
 public class CoinManager : MonoBehaviour
 {
     public static CoinManager Instance;
-    public GameObject coinPrefab;
-    public float chanceDouble = 1f;
+    [SerializeField] private float currentCoins = 0;
+    [SerializeField] GameObject coinPrefab;
+    [SerializeField] float chanceDouble = 1f;
 
     public void Start()
     {
@@ -13,6 +14,22 @@ public class CoinManager : MonoBehaviour
 
     public void SpawnCoin(Vector3 position)
     {
-        Instantiate(coinPrefab);
+        position.y = 0.5f;
+        Instantiate(coinPrefab, position, Quaternion.identity);
+    }
+
+    public void PickUp(float value)
+    {
+        currentCoins += value;
+    }
+
+    public bool TakeCoins(float amount)
+    {
+        if (currentCoins - amount < 0)
+        {
+            return false;
+        }
+        currentCoins -= amount;
+        return true;
     }
 }
