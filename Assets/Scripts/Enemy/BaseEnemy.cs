@@ -9,7 +9,6 @@ public abstract class BaseEnemy : MonoBehaviour
     [Header("Stats")]
     [SerializeField] protected float maxHealth = 100f;
     protected float currentHealth;
-
     [Header("Movement")]
     [SerializeField] protected float moveSpeed = 3f;
     [Header("Combat")]
@@ -72,7 +71,6 @@ public abstract class BaseEnemy : MonoBehaviour
 
     protected virtual void Die()
     {
-        //DropCoins();
         CoinManager.Instance.SpawnCoin(transform.position);
         Destroy(gameObject);
     }
