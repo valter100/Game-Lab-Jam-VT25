@@ -158,6 +158,9 @@ MonoBehaviour:
     resistanceValue: 0.5
   - damageType: 3
     resistanceValue: -0.5
+  slowAmount: 0.1
+  slowTime: 0.25
+  speedRestoreTimer: 0.1
 --- !u!54 &-5070999633807734491
 Rigidbody:
   m_ObjectHideFlags: 0

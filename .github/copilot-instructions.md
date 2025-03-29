@@ -2,7 +2,7 @@
 - Project name: Game-Lab-Jam-VT25
 - Unity version: Unity 6000.0.43f1
 - Active game object:
-  - Name: Enemy
+  - Name: EnemyAir
   - Tag: Enemy
   - Layer: Enemy
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
