@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using System.Linq;
 
 public class Spawning : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class Spawning : MonoBehaviour
     [Header("Prefabs")]
     [SerializeField] GameObject[] prefabList;
     [SerializeField] GameObject player;
+
+
+    [SerializeField] Color colorAir;
+    [SerializeField] Color colorEarth;
+    [SerializeField] Color colorFire;
+    [SerializeField] Color colorWater;
 
 
     int waveCount = 0;
@@ -48,6 +55,26 @@ public class Spawning : MonoBehaviour
             BaseEnemy baseEnemy = Instantiate(prefabList[spawnedEnemy], position, Quaternion.identity).GetComponent<BaseEnemy>();
             baseEnemy.SetPlayer(player);
             baseEnemy.IncreaseScaling(scaledValue);
+            DamageType damageType = baseEnemy.Resistances.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+
+
+            switch (damageType)
+            {
+                case DamageType.None:
+                    break;
+                case DamageType.Fire:
+                    baseEnemy.GetComponent<MeshRenderer>().material.color = colorFire;
+                    break;
+                case DamageType.Air:
+                    baseEnemy.GetComponent<MeshRenderer>().material.color = colorAir;
+                    break;
+                case DamageType.Water:
+                    baseEnemy.GetComponent<MeshRenderer>().material.color = colorWater;
+                    break;
+                case DamageType.Earth:
+                    baseEnemy.GetComponent<MeshRenderer>().material.color = colorEarth;
+                    break;
+            }
         }
         spawnInterval = spawnIntervalReset;
     }

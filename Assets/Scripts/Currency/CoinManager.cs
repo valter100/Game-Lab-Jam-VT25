@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class CoinManager : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class CoinManager : MonoBehaviour
     [SerializeField] private float currentCoins = 0;
     [SerializeField] GameObject coinPrefab;
     [SerializeField] float chanceDouble = 1f;
-
+    public float CurrentCoins => currentCoins;
     public void Start()
     {
         Instance = this;
