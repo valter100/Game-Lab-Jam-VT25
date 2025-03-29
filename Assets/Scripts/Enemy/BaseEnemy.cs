@@ -68,6 +68,22 @@ public abstract class BaseEnemy : MonoBehaviour
         
         CurrentHealth -= finalDamage;
     }
+    public virtual void TakeDamage(float damage, Vector3 position, DamageType type)
+    {
+        float resistance = resistances.ContainsKey(type) ? resistances[type] : 0f;
+        float finalDamage = damage * (1f - resistance);
+        DamageTextSpawner.Instance.SpawnText(finalDamage, textLocation);
+        CurrentHealth -= finalDamage;
+    }
+
+    public virtual void TakeDamage(float damage, DamageType type, Vector3 position, bool crit)
+    {
+        float resistance = resistances.ContainsKey(type) ? resistances[type] : 0f;
+        float finalDamage = damage * (1f - resistance);
+        DamageTextSpawner.Instance.SpawnText(finalDamage, textLocation);
+
+        CurrentHealth -= finalDamage;
+    }
 
     protected virtual void InitializeResistances()
     {
@@ -109,6 +125,7 @@ public class DamageResistance
 
 public enum DamageType
 {
+    None,
     Fire,
     Water,
     Earth,
