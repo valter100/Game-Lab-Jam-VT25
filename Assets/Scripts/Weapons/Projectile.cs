@@ -7,6 +7,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float damage;
 
+    DamageType damageType = DamageType.Air;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,9 +31,12 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.transform.tag == "Enemy")
+        if(collision.gameObject.GetComponent<Enemy>())
         {
-            Debug.Log("Enemy Hit");
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            enemy.TakeDamage(damage, damageType);
+
+            Destroy(gameObject);
         }
     }
 }

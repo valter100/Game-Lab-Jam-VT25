@@ -55,9 +55,13 @@ public abstract class BaseEnemy : MonoBehaviour
         {
             TakeDamage(Random.Range(10f, 500f), DamageType.Fire);
         }
-        if (agent.speed != moveSpeed)
+
+        if (agent)
         {
-            agent.speed = moveSpeed;
+            if (agent.speed != moveSpeed)
+            {
+                agent.speed = moveSpeed;
+            }
         }
     }
     public virtual void TakeDamage(float damage, DamageType type)
@@ -65,7 +69,7 @@ public abstract class BaseEnemy : MonoBehaviour
         float resistance = resistances.ContainsKey(type) ? resistances[type] : 0f;
         float finalDamage = damage * (1f - resistance);
         DamageTextSpawner.Instance.SpawnText(finalDamage, textLocation);
-        
+
         CurrentHealth -= finalDamage;
     }
 
@@ -92,9 +96,9 @@ public abstract class BaseEnemy : MonoBehaviour
 
     public void IncreaseScaling(float amount)
     {
-        maxHealth*= amount;
-        
-        currentHealth*= maxHealth;
+        maxHealth *= amount;
+
+        currentHealth *= maxHealth;
 
         damage *= amount;
     }
