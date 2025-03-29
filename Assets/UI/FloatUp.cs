@@ -16,7 +16,7 @@ public class FloatUp : MonoBehaviour
         //float xOffset = Mathf.Sin(Time.time * frequency) * amplitude;
         //transform.position = new Vector3(startX + xOffset, transform.position.y, transform.position.z);
         transform.position += speed * Time.deltaTime * Vector3.up;
-        transform.LookAt(-Camera.main.transform.position);
+        transform.LookAt(Camera.main.transform.position);
         //Vector3 direction = (Camera.main.transform.position - transform.position);
         //Vector3 newDirection = Vector3.RotateTowards(transform.forward, direction, 1000, 0.0f);
         //transform.rotation = Quaternion.LookRotation(newDirection);
