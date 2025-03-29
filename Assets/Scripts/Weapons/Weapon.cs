@@ -15,6 +15,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] string weaponName;
     [SerializeField] Texture weaponTexture;
     [SerializeField] TMP_Text ammoText;
+    [SerializeField] DamageType damageType;
     float timeSinceLastAttack;
     Player player;
 
@@ -55,11 +56,11 @@ public class Weapon : MonoBehaviour
                 if (Physics.Raycast(player.GetCamera().transform.position, player.GetForward(), out hit, Mathf.Infinity))
                 {
                     Vector3 direction = (hit.point - transform.position).normalized;
-                    spawnedProjectile.GetComponent<Projectile>().InitializeProjectile(damage, direction, projectileSpeed);
+                    spawnedProjectile.GetComponent<Projectile>().InitializeProjectile(damage, direction, projectileSpeed, damageType);
                 }
                 else
                 {
-                    spawnedProjectile.GetComponent<Projectile>().InitializeProjectile(damage, player.GetForward(), projectileSpeed);
+                    spawnedProjectile.GetComponent<Projectile>().InitializeProjectile(damage, player.GetForward(), projectileSpeed, damageType);
                 }
 
             }
