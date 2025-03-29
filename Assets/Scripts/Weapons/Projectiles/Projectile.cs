@@ -3,33 +3,34 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] float lifeTime;
-    [SerializeField] Vector3 direction;
+    [SerializeField] protected Vector3 direction;
     [SerializeField] float speed;
-    [SerializeField] float damage;
+    [SerializeField] protected float damage;
 
-    DamageType damageType = DamageType.Air;
+    protected DamageType damageType = DamageType.Air;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected void Start()
     {
         Destroy(gameObject, lifeTime);
     }
 
     // Update is called once per frame
-    void Update()
+    protected void Update()
     {
         transform.position += direction * speed * Time.deltaTime;
     }
 
-    public void InitializeProjectile(float damage, Vector3 direction, float projectileSpeed)
+    public void InitializeProjectile(float damage, Vector3 direction, float projectileSpeed, DamageType damageType)
     {
         this.damage = damage;
         this.direction = direction;
+        this.damageType = damageType;
 
         speed = projectileSpeed;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    protected virtual void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.GetComponent<Enemy>())
         {
