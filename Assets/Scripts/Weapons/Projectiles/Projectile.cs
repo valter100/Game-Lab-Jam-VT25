@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public abstract class Projectile : MonoBehaviour
 {
-    [SerializeField] float lifeTime;
+    [SerializeField] protected float lifeTime;
     [SerializeField] protected Vector3 direction;
-    [SerializeField] float speed;
+    [SerializeField] protected float speed;
     [SerializeField] protected float damage;
 
     protected DamageType damageType = DamageType.Air;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Chakram : Weapon
+public class ThrowingKnifeProjectile : Projectile
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -12,15 +12,5 @@ public class Chakram : Weapon
     void Update()
     {
         base.Update();
-    }
-
-    protected override void ApplyEquipBonus()
-    {
-        
-    }
-
-    protected override void RemoveEquipBonus()
-    {
-        throw new System.NotImplementedException();
     }
 }

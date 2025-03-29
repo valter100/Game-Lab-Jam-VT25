@@ -48,7 +48,7 @@ public class ChakramProjectile : Projectile
                         continue;
                     }
 
-                    float distance = Vector3.Distance(collision.transform.position, col.transform.position);
+                    float distance = Vector3.Distance(transform.position, col.transform.position);
 
                     if (distance < closestDistance)
                     {
@@ -59,7 +59,7 @@ public class ChakramProjectile : Projectile
 
                 if(closestCollider)
                 {
-                    direction = (closestCollider.transform.position - collision.transform.position).normalized;
+                    direction = (closestCollider.transform.position - transform.position).normalized;
                 }
                 else
                 {

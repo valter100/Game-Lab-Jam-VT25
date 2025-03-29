@@ -1,23 +1,23 @@
 using TMPro;
 using UnityEngine;
 
-public class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] GameObject projectile;
-    [SerializeField] GameObject shootPoint;
-    [SerializeField] float timeBetweenAttacks;
-    [SerializeField] float damage;
-    [SerializeField] float projectileSpeed;
-    [SerializeField] int startAmmo;
-    [SerializeField] int currentAmmo;
+    [SerializeField] protected GameObject projectile;
+    [SerializeField] protected GameObject shootPoint;
+    [SerializeField] protected float timeBetweenAttacks;
+    [SerializeField] protected float damage;
+    [SerializeField] protected float projectileSpeed;
+    [SerializeField] protected int startAmmo;
+    [SerializeField] protected int currentAmmo;
     [SerializeField] Hand holdingHand;
     [SerializeField] string weaponName;
     [SerializeField] Texture weaponTexture;
-    [SerializeField] TMP_Text ammoText;
-    [SerializeField] DamageType damageType;
+    [SerializeField] protected TMP_Text ammoText;
+    [SerializeField] protected DamageType damageType;
     float timeSinceLastAttack;
-    Player player;
+    protected Player player;
 
     protected void Start()
     {
@@ -30,7 +30,7 @@ public class Weapon : MonoBehaviour
         timeSinceLastAttack += Time.deltaTime;
     }
 
-    public void Fire()
+    public virtual void Fire()
     {
         if (timeSinceLastAttack > timeBetweenAttacks)
         {
@@ -38,12 +38,6 @@ public class Weapon : MonoBehaviour
             currentAmmo--;
 
             ammoText.text = currentAmmo.ToString();
-
-            if (currentAmmo <= 0)
-            {
-                player.ReturnWeapon(this);
-                currentAmmo = startAmmo;
-            }
 
             Debug.Log(gameObject.name + " FIRED!");
 
@@ -64,6 +58,12 @@ public class Weapon : MonoBehaviour
                 }
 
             }
+
+            if (currentAmmo <= 0)
+            {
+                player.ReturnWeapon(this);
+                currentAmmo = startAmmo;
+            }
         }
     }
 
@@ -74,10 +74,8 @@ public class Weapon : MonoBehaviour
         ammoText.text = startAmmo.ToString();
     }
 
-    public void SetAmmoText()
-    {
-
-    }
+    protected abstract void ApplyEquipBonus();
+    protected abstract void RemoveEquipBonus();
 
     public Hand GetHoldingHand() => holdingHand;
     public Texture GetTexture() => weaponTexture;
