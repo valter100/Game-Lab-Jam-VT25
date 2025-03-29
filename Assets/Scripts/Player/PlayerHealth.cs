@@ -35,6 +35,12 @@ public class PlayerHealth : MonoBehaviour
         invincibility = invincibilityReset;
     }
 
+    public void IncreaseHealthBackToFull()
+    {
+        currentHealth = maxHealth;
+        OnDamage.Invoke(0);
+    }
+
     public void Die()
     {
 

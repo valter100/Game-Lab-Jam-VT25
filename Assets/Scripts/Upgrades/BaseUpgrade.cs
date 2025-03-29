@@ -12,4 +12,13 @@ public abstract class BaseUpgrade : MonoBehaviour
     {
         currentLevel++;
     }
+
+    public bool CheckMaxLevel()
+    {
+        if (currentLevel >= maxLevel)
+        {
+            return true;
+        }
+        return false;
+    }
 }

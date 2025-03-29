@@ -11,6 +11,8 @@ public class Shop : MonoBehaviour
     [SerializeField] GameObject shopCanvas;
     [SerializeField] UpgradeCard[] upgradeDisplays;
 
+    public GameObject ShopCanvas => shopCanvas;
+
     void Start()
     {
         upgrades = rootUpgrades.GetComponentsInChildren<BaseUpgrade>().ToList();
@@ -26,6 +28,7 @@ public class Shop : MonoBehaviour
 
     public void ShuffleUpgrades()
     {
+
         int count = upgrades.Count;
         for (int i = count - 1; i > 0; i--)
         {
@@ -37,13 +40,35 @@ public class Shop : MonoBehaviour
     public void ActivateShop()
     {
         Time.timeScale = 0;
+        Cursor.lockState = CursorLockMode.None;
         ShuffleUpgrades();
         for (int i = 0; i < upgradeChoices; i++)
         {
             UpgradeCard card = upgradeDisplays[i];
-            card.UpdateCard(upgrades[i].title, upgrades[i].description, upgrades[i].cost.ToString());
+            card.UpdateCard(upgrades[i].title, upgrades[i].description, upgrades[i].cost.ToString(), upgrades[i]);
         }
         shopCanvas.SetActive(true);
 
+    }
+
+    public void DeactiveShop()
+    {
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        shopCanvas.SetActive(false);
+    }
+
+    public bool CheckPrice(float cost)
+    {
+        return CoinManager.Instance.CurrentCoins >= cost;
+    }
+    
+    public void CheckCard(BaseUpgrade upgrade)
+    {
+        CoinManager.Instance.TakeCoins(upgrade.cost);
+        if (upgrade.CheckMaxLevel())
+        {
+            upgrades.Remove(upgrade);
+        }
     }
 }

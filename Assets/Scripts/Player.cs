@@ -26,8 +26,9 @@ public class Player : MonoBehaviour
     [SerializeField] int level = 1;
     [SerializeField] int expRequiredToLevel;
     [SerializeField] int[] expPerLevel;
-
+    [SerializeField] Shop shop;
     float xRotation = 0;
+    
 
     private void Start()
     {
@@ -79,6 +80,10 @@ public class Player : MonoBehaviour
 
         transform.Translate(movement, Space.World);
 
+        if (shop.ShopCanvas.activeSelf)
+        {
+            return;
+        }
         transform.Rotate(Vector3.up * lookAction.action.ReadValue<Vector2>().x * rotationSensitivity);
 
         xRotation -= lookAction.action.ReadValue<Vector2>().y * rotationSensitivity;
@@ -91,7 +96,7 @@ public class Player : MonoBehaviour
     {
         expRequiredToLevel -= expGained;
 
-        if(expRequiredToLevel < 0)
+        if(expRequiredToLevel < 0) 
         {
             LevelUp();
         }
