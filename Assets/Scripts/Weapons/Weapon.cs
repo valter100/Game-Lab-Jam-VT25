@@ -51,9 +51,4 @@ public abstract class Weapon : MonoBehaviour
     {
         damage += amount;
     }
-
-    public void IncreaseProjectileSpeed(float amount)
-    {
-        projectileSpeed += amount;
-    }
 }

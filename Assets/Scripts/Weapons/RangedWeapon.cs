@@ -56,4 +56,8 @@ public abstract class RangedWeapon : Weapon
             }
         }
     }
+    public void IncreaseProjectileSpeed(float amount)
+    {
+        projectileSpeed += amount;
+    }
 }

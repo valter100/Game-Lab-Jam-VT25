@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BaseProjectileSpeedUpgrade : BaseUpgrade
 {
-    [SerializeField] Weapon[] weapons;
+    [SerializeField] RangedWeapon[] weapons;
     [SerializeField] float speedBuff = 1;
     public override void DoUpgrade()
     {

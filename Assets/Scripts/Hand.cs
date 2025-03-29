@@ -39,7 +39,7 @@ public class Hand : MonoBehaviour
     {
         if (fireAction.action.inProgress && weapon != null)
         {
-            weapon.Fire();
+            weapon.Attack();
         }
     }
 

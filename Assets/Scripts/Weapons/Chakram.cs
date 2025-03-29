@@ -13,7 +13,7 @@ public class Chakram : RangedWeapon
     {
         base.Update();
     }
-    public override void Fire()
+    public override void Attack()
     {
         if (timeSinceLastAttack > timeBetweenAttacks)
         {

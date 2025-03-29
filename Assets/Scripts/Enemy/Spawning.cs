@@ -44,7 +44,6 @@ public class Spawning : MonoBehaviour
         int spawnedEnemy = Random.Range(0, prefabList.Length);
         int enemiesToSpawn = baseEnemiesPerWave + Mathf.FloorToInt(Mathf.Log(waveCount + 1) * 3);
         float scaledValue = Mathf.Pow(scalingAmount, waveCount);
-        Debug.Log(scaledValue);
         for (int i = 0; i < enemiesToSpawn; i++)
         {
             float angle = i * Mathf.PI * 2f / enemiesToSpawn; 
