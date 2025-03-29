@@ -59,8 +59,19 @@ public class Player : MonoBehaviour
 
         weapon.GetHoldingHand().SetWeapon(null);
 
-        weapon.transform.parent = null;
-        weapon.transform.position = new Vector3(0, 0, 10000);
+        Transform weaponTransform = null;
+
+        if(weapon.transform.parent && !weapon.transform.parent.GetComponent<Hand>())
+        {
+            weaponTransform = weapon.transform.parent;
+        }
+        else
+        {
+            weaponTransform = weapon.transform;
+        }
+
+        weaponTransform.transform.parent = null;
+        weaponTransform.transform.position = new Vector3(0, 0, 10000);
     }
 
     public Weapon GetWeapon()

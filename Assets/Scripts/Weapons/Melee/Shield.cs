@@ -1,0 +1,31 @@
+using UnityEngine;
+
+public class Shield : MeleeWeapon
+{
+    bool isGuarding;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    public override void Attack()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    protected override void ApplyEquipBonus()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    protected override void RemoveEquipBonus()
+    {
+        throw new System.NotImplementedException();
+    }
+}

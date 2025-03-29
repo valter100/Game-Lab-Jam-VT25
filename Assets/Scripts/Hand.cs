@@ -7,6 +7,14 @@ public class Hand : MonoBehaviour
     [SerializeField] InputActionReference fireAction;
     [SerializeField] Weapon weapon;
     [SerializeField] TMP_Text ammoText;
+    [SerializeField] HandType handType;
+
+    public enum HandType
+    {
+        Left,
+        Right
+    }
+
     Player player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,4 +63,5 @@ public class Hand : MonoBehaviour
     }
 
     public TMP_Text GetAmmoText() => ammoText;
+    public HandType GetHandType() => handType;
 }

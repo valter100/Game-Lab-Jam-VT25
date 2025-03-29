@@ -9,7 +9,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected float damage;
     [SerializeField] protected int startAmmo;
     [SerializeField] protected int currentAmmo;
-    [SerializeField] Hand holdingHand;
+    [SerializeField] protected Hand holdingHand;
     [SerializeField] string weaponName;
     [SerializeField] Texture weaponTexture;
     [SerializeField] protected TMP_Text ammoText;
