@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using static BaseEnemy;
+using Random = UnityEngine.Random;
 
 public abstract class BaseEnemy : MonoBehaviour
 {
@@ -18,6 +20,8 @@ public abstract class BaseEnemy : MonoBehaviour
     protected NavMeshAgent agent;
     [Header("Resistance")]
     protected Dictionary<DamageType, float> resistances = new Dictionary<DamageType, float>();
+
+    [SerializeField] Transform textLocation;
 
     [SerializeField] private List<DamageResistance> resistanceList = new List<DamageResistance>();
     public float CurrentHealth
@@ -47,6 +51,10 @@ public abstract class BaseEnemy : MonoBehaviour
         HandleMovement();
         HandleCombat();
 
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            TakeDamage(Random.Range(10f, 500f), DamageType.Fire);
+        }
         if (agent.speed != moveSpeed)
         {
             agent.speed = moveSpeed;
@@ -56,7 +64,8 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         float resistance = resistances.ContainsKey(type) ? resistances[type] : 0f;
         float finalDamage = damage * (1f - resistance);
-
+        DamageTextSpawner.Instance.SpawnText(finalDamage, textLocation);
+        
         CurrentHealth -= finalDamage;
     }
 

@@ -12,7 +12,7 @@ public class Coin : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(Vector3.right * Time.deltaTime * speed);
+        transform.Rotate(new Vector3(1, 1, 1) * Time.deltaTime * speed);
     }
 
     public void PickUp()
