@@ -16,6 +16,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] Texture weaponTexture;
     [SerializeField] protected TMP_Text ammoText;
     [SerializeField] protected DamageType damageType;
+    [SerializeField] protected Animator animator;
     float timeSinceLastAttack;
     protected Player player;
 
@@ -44,6 +45,8 @@ public abstract class Weapon : MonoBehaviour
             if (projectile)
             {
                 GameObject spawnedProjectile = Instantiate(projectile, shootPoint.transform.position, shootPoint.transform.rotation);
+
+                animator.Play("Fire");
 
                 RaycastHit hit;
 

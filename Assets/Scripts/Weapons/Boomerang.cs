@@ -19,6 +19,8 @@ public class Boomerang : Weapon
     {
         if (canThrow)
         {
+            transform.localScale = Vector3.zero;
+
             currentAmmo--;
 
             ammoText.text = currentAmmo.ToString();
@@ -53,9 +55,20 @@ public class Boomerang : Weapon
         }
     }
 
+    public void SetCanThrowTrue()
+    {
+        canThrow = true;
+    }
+
     public void SetCanThrow(bool state)
     {
         canThrow = state;
+    }
+
+    public void PlayGrabAnimation()
+    {
+        transform.localScale = Vector3.one;
+        animator.Play("Grab");
     }
 
     protected override void ApplyEquipBonus()
