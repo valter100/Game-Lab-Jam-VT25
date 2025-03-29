@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Boomerang : Weapon
+public class Boomerang : RangedWeapon
 {
     [SerializeField] bool canThrow = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,7 +15,7 @@ public class Boomerang : Weapon
         base.Update();
     }
 
-    public override void Fire()
+    public override void Attack()
     {
         if (canThrow)
         {

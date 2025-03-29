@@ -83,6 +83,9 @@ public class BoomerangProjectile : Projectile
 
     private void OnDestroy()
     {
-        firedWeapon.SetCanThrow(true);
+        if(firedWeapon)
+        {
+            firedWeapon.SetCanThrow(true);
+        }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ThrowingKnife : Weapon
+public class ThrowingKnife : RangedWeapon
 {
     protected override void ApplyEquipBonus()
     {

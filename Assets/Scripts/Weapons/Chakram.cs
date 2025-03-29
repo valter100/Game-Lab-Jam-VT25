@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Chakram : Weapon
+public class Chakram : RangedWeapon
 {
     [SerializeField] int bounceAmount = 2;
     void Start()
