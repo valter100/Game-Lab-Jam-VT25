@@ -790,6 +790,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2049601758}
     - target: {fileID: 8893486174751769401, guid: 421cd989ffdf77f4f8ef674e64835d6c, type: 3}
+      propertyPath: weaponTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: ba1273d152b5f824ab4bbd90620a5a90, type: 3}
+    - target: {fileID: 8893486174751769401, guid: 421cd989ffdf77f4f8ef674e64835d6c, type: 3}
       propertyPath: timeBetweenAttacks
       value: 0.5
       objectReference: {fileID: 0}
@@ -1141,7 +1145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e0ddaac041bdd47974784f4bddfe38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 160
   expGiven: 1
   moveSpeed: 0
   damage: 3
@@ -1419,7 +1423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e0ddaac041bdd47974784f4bddfe38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 160
   expGiven: 1
   moveSpeed: 0
   damage: 3
@@ -1653,7 +1657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e0ddaac041bdd47974784f4bddfe38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 160
   expGiven: 1
   moveSpeed: 0
   damage: 3

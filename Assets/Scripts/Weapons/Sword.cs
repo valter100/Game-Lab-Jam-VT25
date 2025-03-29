@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ThrowingKnife : RangedWeapon
+public class Sword : MeleeWeapon
 {
     protected override void ApplyEquipBonus()
     {
@@ -15,12 +15,12 @@ public class ThrowingKnife : RangedWeapon
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        base.Start();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        base.Update();
+        
     }
 }

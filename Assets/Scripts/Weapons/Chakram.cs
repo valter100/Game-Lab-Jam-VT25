@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Chakram : Weapon
+public class Chakram : RangedWeapon
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
