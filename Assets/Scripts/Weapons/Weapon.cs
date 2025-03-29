@@ -80,4 +80,14 @@ public abstract class Weapon : MonoBehaviour
     public Hand GetHoldingHand() => holdingHand;
     public Texture GetTexture() => weaponTexture;
     public string GetName() => weaponName;
+
+    public void IncreaseDamage(float amount)
+    {
+        damage += amount;
+    }
+
+    public void IncreaseProjectileSpeed(float amount)
+    {
+        projectileSpeed += amount;
+    }
 }
