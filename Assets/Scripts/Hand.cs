@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,6 +6,7 @@ public class Hand : MonoBehaviour
 {
     [SerializeField] InputActionReference fireAction;
     [SerializeField] Weapon weapon;
+    [SerializeField] TMP_Text ammoText;
     Player player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,4 +39,6 @@ public class Hand : MonoBehaviour
     {
         weapon = newWeapon;
     }
+
+    public TMP_Text GetAmmoText() => ammoText;
 }

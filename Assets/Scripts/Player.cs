@@ -1,7 +1,9 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -15,6 +17,18 @@ public class Player : MonoBehaviour
     [SerializeField] InputActionReference lookAction;
 
     [SerializeField] float movementSpeed;
+    [SerializeField] float rotationSensitivity;
+    [SerializeField] GameObject camera;
+
+    [SerializeField] RawImage nextWeaponImage;
+    [SerializeField] TMP_Text nextWeaponName;
+
+    float xRotation = 0;
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     void Update()
     {
@@ -40,6 +54,9 @@ public class Player : MonoBehaviour
         Weapon weapon = weapons[0];
         weapons.RemoveAt(0);
         equippedWeapons.Add(weapon);
+
+        nextWeaponImage.texture = weapons[0].GetTexture();
+        nextWeaponName.text = "Next: " + weapons[0].GetName();
         return weapon;
     }
 
@@ -57,7 +74,14 @@ public class Player : MonoBehaviour
 
         transform.Translate(movement, Space.World);
 
-        //transform.position += new Vector3(.x, 0, moveAction.action.ReadValue<Vector2>().y) * movementSpeed * Time.deltaTime;
-        transform.Rotate(0, lookAction.action.ReadValue<Vector2>().x,0);
+        transform.Rotate(Vector3.up * lookAction.action.ReadValue<Vector2>().x);
+
+        xRotation -= lookAction.action.ReadValue<Vector2>().y;
+        xRotation = Mathf.Clamp(xRotation, -90, 90);
+
+        camera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
     }
+
+    public Vector3 GetForward() => camera.transform.forward;
+    public GameObject GetCamera() => camera;
 }

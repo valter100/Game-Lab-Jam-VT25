@@ -19,10 +19,12 @@ public class Projectile : MonoBehaviour
         transform.position += direction * speed * Time.deltaTime;
     }
 
-    public void InitializeProjectile(float damage, Vector3 direction)
+    public void InitializeProjectile(float damage, Vector3 direction, float projectileSpeed)
     {
         this.damage = damage;
         this.direction = direction;
+
+        speed = projectileSpeed;
     }
 
     private void OnCollisionEnter(Collision collision)

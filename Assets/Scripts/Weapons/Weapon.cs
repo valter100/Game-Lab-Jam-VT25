@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -7,19 +8,23 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject shootPoint;
     [SerializeField] float timeBetweenAttacks;
     [SerializeField] float damage;
+    [SerializeField] float projectileSpeed;
     [SerializeField] int startAmmo;
     [SerializeField] int currentAmmo;
     [SerializeField] Hand holdingHand;
+    [SerializeField] string weaponName;
+    [SerializeField] Texture weaponTexture;
+    [SerializeField] TMP_Text ammoText;
     float timeSinceLastAttack;
     Player player;
 
-    private void Start()
+    protected void Start()
     {
         currentAmmo = startAmmo;
         player = FindAnyObjectByType<Player>();
     }
 
-    void Update()
+    protected void Update()
     {
         timeSinceLastAttack += Time.deltaTime;
     }
@@ -30,6 +35,8 @@ public class Weapon : MonoBehaviour
         {
             timeSinceLastAttack = 0;
             currentAmmo--;
+
+            ammoText.text = currentAmmo.ToString();
 
             if (currentAmmo <= 0)
             {
@@ -42,7 +49,19 @@ public class Weapon : MonoBehaviour
             if (projectile)
             {
                 GameObject spawnedProjectile = Instantiate(projectile, shootPoint.transform.position, shootPoint.transform.rotation);
-                spawnedProjectile.GetComponent<Projectile>().InitializeProjectile(damage, player.transform.forward);
+
+                RaycastHit hit;
+
+                if (Physics.Raycast(player.GetCamera().transform.position, player.GetForward(), out hit, Mathf.Infinity))
+                {
+                    Vector3 direction = (hit.point - transform.position).normalized;
+                    spawnedProjectile.GetComponent<Projectile>().InitializeProjectile(damage, direction, projectileSpeed);
+                }
+                else
+                {
+                    spawnedProjectile.GetComponent<Projectile>().InitializeProjectile(damage, player.GetForward(), projectileSpeed);
+                }
+
             }
         }
     }
@@ -50,7 +69,16 @@ public class Weapon : MonoBehaviour
     public void SetHoldingHand(Hand newHand)
     {
         holdingHand = newHand;
+        ammoText = holdingHand.GetAmmoText();
+        ammoText.text = startAmmo.ToString();
+    }
+
+    public void SetAmmoText()
+    {
+
     }
 
     public Hand GetHoldingHand() => holdingHand;
+    public Texture GetTexture() => weaponTexture;
+    public string GetName() => weaponName;
 }

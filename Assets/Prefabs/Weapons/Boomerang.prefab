@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 7050407852510172143}
   - component: {fileID: 9025883940166272354}
   - component: {fileID: 8421264976380924863}
-  - component: {fileID: 4197176914158183578}
+  - component: {fileID: 8541591262876389643}
   m_Layer: 0
   m_Name: Boomerang
   m_TagString: Untagged
@@ -141,7 +141,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4197176914158183578
+--- !u!114 &8541591262876389643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -150,13 +150,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8010618483604008460}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d8fd665427bc8845bfc8e2005a0e132, type: 3}
+  m_Script: {fileID: 11500000, guid: 39354e45f0b47044993716d9ee1aa55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 7924089026721829593, guid: 4964192795489bd499c7534aea76e055, type: 3}
   shootPoint: {fileID: 1543679609430437840}
   timeBetweenAttacks: 3
-  damage: 0
-  startAmmo: 5
+  damage: 10
+  projectileSpeed: 2
+  startAmmo: 3
   currentAmmo: 0
   holdingHand: {fileID: 0}
+  weaponName: Boomerang
+  weaponTexture: {fileID: 2800000, guid: 1a0f5c39c75c56d40becfae04ef40b95, type: 3}
