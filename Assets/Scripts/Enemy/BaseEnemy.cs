@@ -17,7 +17,7 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] protected float damage = 3f;
     [Header("Target")]
     [SerializeField] protected GameObject target;
-    protected NavMeshAgent agent;
+
     [Header("Resistance")]
     protected Dictionary<DamageType, float> resistances = new Dictionary<DamageType, float>();
 
@@ -42,7 +42,7 @@ public abstract class BaseEnemy : MonoBehaviour
     protected virtual void Awake()
     {
         CurrentHealth = maxHealth;
-        agent = GetComponent<NavMeshAgent>();
+
         InitializeResistances();
     }
 
@@ -56,13 +56,7 @@ public abstract class BaseEnemy : MonoBehaviour
             TakeDamage(Random.Range(10f, 500f), DamageType.Fire);
         }
 
-        if (agent)
-        {
-            if (agent.speed != moveSpeed)
-            {
-                agent.speed = moveSpeed;
-            }
-        }
+
     }
     public virtual void TakeDamage(float damage, DamageType type)
     {
@@ -84,7 +78,7 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         float resistance = resistances.ContainsKey(type) ? resistances[type] : 0f;
         float finalDamage = damage * (1f - resistance);
-        DamageTextSpawner.Instance.SpawnText(finalDamage, textLocation);
+        DamageTextSpawner.Instance.SpawnText(finalDamage, position, type);
 
         CurrentHealth -= finalDamage;
     }
