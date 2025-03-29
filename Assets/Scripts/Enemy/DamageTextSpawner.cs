@@ -27,6 +27,7 @@ public class DamageTextSpawner : MonoBehaviour
     public void SpawnText(float damage, Vector3 position, DamageType damageType) // ADD COLOR FOR CRIT
     {
         GameObject go = Instantiate(textPrefab, position + spawnOffset, Quaternion.identity);
+        go.transform.parent = null;
         var textMesh = go.GetComponentInChildren<TextMeshProUGUI>();
         textMesh.text = ((int)damage).ToString();
         switch (damageType)

@@ -34,6 +34,9 @@ public class ChakramProjectile : Projectile
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             enemy.TakeDamage(damage, transform.position, damageType);
 
+            //GetComponent<AudioSource>().pitch = Random.Range(0.85f, 1.15f);
+            //GetComponent<AudioSource>().Play();
+
             SpawnEnemyEffect();
 
             if (bounceLeft > 0)
@@ -68,12 +71,14 @@ public class ChakramProjectile : Projectile
                 }
                 else
                 {
+                    //GetComponentInChildren<Renderer>().enabled = false;
+                    //GetComponent<Collider>().enabled = false;
                     Destroy(gameObject);
                 }
             }
             else
             {
-                Destroy(gameObject);
+                Destroy(gameObject, 0.5f);
             }
         }
         else if(collision.transform.tag == "Object")
