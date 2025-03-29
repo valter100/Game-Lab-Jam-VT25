@@ -65,7 +65,10 @@ public class BoomerangProjectile : Projectile
         }
         else if(collision.gameObject.tag == "Player" && hasBounced)
         {
-            firedWeapon.SetCanThrow(true);
+            if(firedWeapon)
+            {
+                firedWeapon.SetCanThrow(true);
+            }
             Destroy(gameObject);
         }
     }
