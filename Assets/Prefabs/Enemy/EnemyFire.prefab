@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e0ddaac041bdd47974784f4bddfe38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 10
   moveSpeed: 1.5
   damage: 3
   target: {fileID: 0}
@@ -155,6 +155,8 @@ MonoBehaviour:
   resistanceList:
   - damageType: 1
     resistanceValue: 0.5
+  - damageType: 2
+    resistanceValue: -0.5
 --- !u!1 &7040300469092236668
 GameObject:
   m_ObjectHideFlags: 0

@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 160
-  speed: 4
+  speed: 6
   value: 1
 --- !u!54 &-5487701219648417276
 Rigidbody:
