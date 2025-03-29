@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -25,7 +26,12 @@ public class Player : MonoBehaviour
 
     [SerializeField] int level = 1;
     [SerializeField] int expRequiredToLevel;
+    [SerializeField] int currentExp;
     [SerializeField] int[] expPerLevel;
+
+    [SerializeField] Slider expSlider;
+    [SerializeField] TMP_Text currentLevelText;
+    [SerializeField] TMP_Text nextLevelText;
 
     float xRotation = 0;
 
@@ -33,6 +39,9 @@ public class Player : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         expRequiredToLevel = expPerLevel[level - 1];
+        expSlider.maxValue = expRequiredToLevel;
+        currentLevelText.text = level.ToString();
+        nextLevelText.text = (level + 1).ToString();
     }
 
     void Update()
@@ -89,18 +98,27 @@ public class Player : MonoBehaviour
 
     public void GainExp(int expGained)
     {
-        expRequiredToLevel -= expGained;
+        currentExp += expGained;
+        expSlider.value = currentExp;
 
-        if(expRequiredToLevel < 0)
+        if (currentExp >= expRequiredToLevel)
         {
-            LevelUp();
+            LevelUp(currentExp - expRequiredToLevel);
         }
     }
 
-    public void LevelUp()
+    public void LevelUp(int overShoot)
     {
         level++;
-        expRequiredToLevel = expPerLevel[level - 1] + expRequiredToLevel;
+        expRequiredToLevel = expPerLevel[level - 1];
+
+        currentExp = overShoot;
+
+        expSlider.maxValue = expRequiredToLevel;
+        expSlider.value = currentExp;
+
+        currentLevelText.text = level.ToString();
+        nextLevelText.text = (level + 1).ToString();
 
         //Spawn shop UI
     }

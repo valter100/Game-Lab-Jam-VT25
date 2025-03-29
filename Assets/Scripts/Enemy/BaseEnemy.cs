@@ -11,6 +11,7 @@ public abstract class BaseEnemy : MonoBehaviour
     [Header("Stats")]
     [SerializeField] protected float maxHealth = 100f;
     protected float currentHealth;
+    [SerializeField] int expGiven;
     [Header("Movement")]
     [SerializeField] protected float moveSpeed = 3f;
     [Header("Combat")]
@@ -33,7 +34,10 @@ public abstract class BaseEnemy : MonoBehaviour
         {
             currentHealth = Mathf.Clamp(value, 0, maxHealth);
             if (currentHealth <= 0)
+            {
+                
                 Die();
+            }
         }
     }
     public void SetPlayer(GameObject player)
@@ -97,6 +101,7 @@ public abstract class BaseEnemy : MonoBehaviour
     protected virtual void Die()
     {
         CoinManager.Instance.SpawnCoin(transform.position);
+        target.GetComponent<Player>().GainExp(expGiven);
         Destroy(gameObject);
     }
 
