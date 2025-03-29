@@ -18,10 +18,14 @@ public class Player : MonoBehaviour
 
     [SerializeField] float movementSpeed;
     [SerializeField] float rotationSensitivity;
-    [SerializeField] GameObject camera;
+    [SerializeField] GameObject playerCamera;
 
     [SerializeField] RawImage nextWeaponImage;
     [SerializeField] TMP_Text nextWeaponName;
+
+    [SerializeField] int level = 1;
+    [SerializeField] int expRequiredToLevel;
+    [SerializeField] int[] expPerLevel;
 
     float xRotation = 0;
 
@@ -79,9 +83,27 @@ public class Player : MonoBehaviour
         xRotation -= lookAction.action.ReadValue<Vector2>().y;
         xRotation = Mathf.Clamp(xRotation, -90, 90);
 
-        camera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
     }
 
-    public Vector3 GetForward() => camera.transform.forward;
-    public GameObject GetCamera() => camera;
+    public void GainExp(int expGained)
+    {
+        expRequiredToLevel -= expGained;
+
+        if(expRequiredToLevel < 0)
+        {
+            LevelUp();
+        }
+    }
+
+    public void LevelUp()
+    {
+        level++;
+        expRequiredToLevel = expPerLevel[level] + expRequiredToLevel;
+
+        //Spawn shop UI
+    }
+
+    public Vector3 GetForward() => playerCamera.transform.forward;
+    public GameObject GetCamera() => playerCamera;
 }
