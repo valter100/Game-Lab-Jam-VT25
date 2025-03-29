@@ -24,8 +24,6 @@ public abstract class BaseEnemy : MonoBehaviour
     [Header("Resistance")]
     protected Dictionary<DamageType, float> resistances = new Dictionary<DamageType, float>();
 
-    [SerializeField] Transform textLocation;
-
     [SerializeField] private List<DamageResistance> resistanceList = new List<DamageResistance>();
 
     public Dictionary<DamageType, float> Resistances => resistances;
@@ -64,19 +62,6 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         HandleMovement();
         HandleCombat();
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            TakeDamage(Random.Range(10f, 500f), DamageType.Fire);
-        }
-    }
-    public virtual void TakeDamage(float damage, DamageType type)
-    {
-        float resistance = resistances.ContainsKey(type) ? resistances[type] : 0f;
-        float finalDamage = damage * (1f - resistance);
-        DamageTextSpawner.Instance.SpawnText(finalDamage, textLocation);
-        ReduceSpeed();
-        CurrentHealth -= finalDamage;
     }
     public virtual void TakeDamage(float damage, Vector3 position, DamageType type)
     {
@@ -117,7 +102,21 @@ public abstract class BaseEnemy : MonoBehaviour
 
     //public abstract void DropCoins();
 
+    public virtual void UpdateMoveSpeed(float percentage)
+    {
+        moveSpeed *= percentage;
+    }
 
+    public virtual void UpdateDamage(float percentage)
+    {
+        damage *= percentage;
+    }
+
+    public virtual void UpdateHealth(float percentage)
+    {
+        maxHealth *= percentage;
+        currentHealth = maxHealth;
+    }
     public void IncreaseScaling(float amount)
     {
         maxHealth *= amount;

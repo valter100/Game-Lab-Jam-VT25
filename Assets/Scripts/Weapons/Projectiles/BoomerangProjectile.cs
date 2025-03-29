@@ -57,7 +57,7 @@ public class BoomerangProjectile : Projectile
             {
                 SpawnEnemyEffect();
 
-                enemy.TakeDamage(damage, damageType);
+                enemy.TakeDamage(damage, transform.position ,damageType);
                 hitEnemies.Add(enemy);
             }
         }

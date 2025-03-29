@@ -2,7 +2,7 @@
 - Project name: Game-Lab-Jam-VT25
 - Unity version: Unity 6000.0.43f1
 - Active game object:
-  - Name: Enemy
-  - Tag: Enemy
-  - Layer: Enemy
+  - Name: CoinManager
+  - Tag: Untagged
+  - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

@@ -17,7 +17,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected TMP_Text ammoText;
     [SerializeField] protected DamageType damageType;
     [SerializeField] protected Animator animator;
-    float timeSinceLastAttack;
+    protected float timeSinceLastAttack;
     protected Player player;
 
     protected void Start()
@@ -83,4 +83,14 @@ public abstract class Weapon : MonoBehaviour
     public Hand GetHoldingHand() => holdingHand;
     public Texture GetTexture() => weaponTexture;
     public string GetName() => weaponName;
+
+    public void IncreaseDamage(float amount)
+    {
+        damage += amount;
+    }
+
+    public void IncreaseProjectileSpeed(float amount)
+    {
+        projectileSpeed += amount;
+    }
 }

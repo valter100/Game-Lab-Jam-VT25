@@ -57,25 +57,38 @@ public class Spawning : MonoBehaviour
             baseEnemy.IncreaseScaling(scaledValue);
             DamageType damageType = baseEnemy.Resistances.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
 
-
+            SkinnedMeshRenderer[] sk = baseEnemy.GetComponentsInChildren<SkinnedMeshRenderer>();
+            Color color = Color.white;
             switch (damageType)
             {
                 case DamageType.None:
                     break;
                 case DamageType.Fire:
-                    baseEnemy.GetComponent<MeshRenderer>().material.color = colorFire;
+                   color = colorFire;
                     break;
                 case DamageType.Air:
-                    baseEnemy.GetComponent<MeshRenderer>().material.color = colorAir;
+                    color = colorAir;
                     break;
                 case DamageType.Water:
-                    baseEnemy.GetComponent<MeshRenderer>().material.color = colorWater;
+                    color = colorWater;
                     break;
                 case DamageType.Earth:
-                    baseEnemy.GetComponent<MeshRenderer>().material.color = colorEarth;
+                    color = colorEarth;
                     break;
             }
+            for (int j = 0; j < sk.Length; j++)
+            {
+                sk[j].material.color = color;
+            }
+
+            float variation = Random.Range(0.85f, 1.15f);
+            baseEnemy.transform.localScale *= variation;
+            baseEnemy.UpdateMoveSpeed(variation);
+            baseEnemy.UpdateDamage(variation);
+            baseEnemy.UpdateHealth(variation);
+            spawnInterval = spawnIntervalReset;
         }
-        spawnInterval = spawnIntervalReset;
+
+
     }
 }

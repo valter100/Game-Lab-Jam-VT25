@@ -24,6 +24,12 @@ public class Enemy : BaseEnemy
         speedRestoreTimer = slowTime;
     }
 
+    public override void UpdateMoveSpeed(float percentage)
+    {
+        moveSpeed *= percentage;
+        agent.speed = moveSpeed;
+    }
+
     protected override void HandleMovement()
     {
         agent.SetDestination(target.transform.position);

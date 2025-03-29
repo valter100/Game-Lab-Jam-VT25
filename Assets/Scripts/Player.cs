@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     [SerializeField] TMP_Text currentLevelText;
     [SerializeField] TMP_Text nextLevelText;
 
+    [SerializeField] protected Shop shop;
+
     float xRotation = 0;
 
     private void Start()
@@ -88,12 +90,16 @@ public class Player : MonoBehaviour
 
         transform.Translate(movement, Space.World);
 
-        transform.Rotate(Vector3.up * lookAction.action.ReadValue<Vector2>().x * rotationSensitivity);
+        if (!shop.ShopCanvas.activeSelf)
+        {
+            transform.Rotate(Vector3.up * lookAction.action.ReadValue<Vector2>().x * rotationSensitivity);
 
-        xRotation -= lookAction.action.ReadValue<Vector2>().y * rotationSensitivity;
-        xRotation = Mathf.Clamp(xRotation, -90, 90);
+            xRotation -= lookAction.action.ReadValue<Vector2>().y * rotationSensitivity;
+            xRotation = Mathf.Clamp(xRotation, -90, 90);
 
-        playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+            playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
+        }
+
     }
 
     public void GainExp(int expGained)
@@ -110,6 +116,7 @@ public class Player : MonoBehaviour
     public void LevelUp(int overShoot)
     {
         level++;
+        shop.ActivateShop();
         expRequiredToLevel = expPerLevel[level - 1];
 
         currentExp = overShoot;
@@ -119,6 +126,8 @@ public class Player : MonoBehaviour
 
         currentLevelText.text = level.ToString();
         nextLevelText.text = (level + 1).ToString();
+
+
 
         //Spawn shop UI
     }
