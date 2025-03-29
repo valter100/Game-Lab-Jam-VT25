@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29c30d2aad0d92043a2089ddfbfbee6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentCoins: 0
+  currentCoins: 100
   coinPrefab: {fileID: 3421817696255893233, guid: 141a813b96e66e04d8294375a2f45261, type: 3}
   chanceDouble: 1
 --- !u!1001 &22051250
@@ -994,6 +994,57 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5837044649511017786, guid: 8ceb5af1428cdae41adbe18a4a6a7e23, type: 3}
   m_PrefabInstance: {fileID: 1967369540}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &392030989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 392030990}
+  - component: {fileID: 392030991}
+  m_Layer: 0
+  m_Name: Bounce Amount
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &392030990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392030989}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1229494006}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &392030991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392030989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f39b20a2694b6d347bd88ec09d237ed0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  maxLevel: 4
+  title: Increase bounces
+  description: Increase the amount of bounces on the chakram
+  cost: 10
+  weapon: {fileID: 121742227}
+  bounceAmount: 2
 --- !u!1 &429642765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,6 +1268,10 @@ PrefabInstance:
     - target: {fileID: 4865990885468977108, guid: 19299af25b6bea9448551ab8b60cf58e, type: 3}
       propertyPath: damageType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865990885468977108, guid: 19299af25b6bea9448551ab8b60cf58e, type: 3}
+      propertyPath: bounceAmount
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3659,6 +3714,7 @@ Transform:
   m_Children:
   - {fileID: 566831480}
   - {fileID: 1408315787}
+  - {fileID: 392030990}
   m_Father: {fileID: 622330306}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1248646321
@@ -4801,6 +4857,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyEarth
       objectReference: {fileID: 0}
+    - target: {fileID: 5789582740547794639, guid: 6ed735d52f2644d47800fc062fd7430a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8802836059257114734, guid: 6ed735d52f2644d47800fc062fd7430a, type: 3}
       propertyPath: target
       value: 
@@ -5497,7 +5557,7 @@ MonoBehaviour:
   - {fileID: 429642766}
   - {fileID: 457765300}
   - {fileID: 833656892}
-  spawnInterval: 12
+  spawnInterval: 3
   baseEnemiesPerWave: 1
   scalingAmount: 1.01
   prefabList:

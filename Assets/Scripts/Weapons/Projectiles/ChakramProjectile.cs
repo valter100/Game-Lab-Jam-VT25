@@ -20,6 +20,11 @@ public class ChakramProjectile : Projectile
         base.Update();
     }
 
+    public void SetBounces(int amount)
+    {
+        bounceLeft = amount;
+    }
+
     protected override void OnCollisionEnter(Collision collision)
     {
         if(hitEnemies.Contains(collision.collider))

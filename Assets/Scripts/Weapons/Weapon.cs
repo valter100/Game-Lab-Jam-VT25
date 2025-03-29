@@ -16,7 +16,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] Texture weaponTexture;
     [SerializeField] protected TMP_Text ammoText;
     [SerializeField] protected DamageType damageType;
-    float timeSinceLastAttack;
+    protected float timeSinceLastAttack;
     protected Player player;
 
     protected void Start()
