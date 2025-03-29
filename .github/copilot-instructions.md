@@ -2,7 +2,7 @@
 - Project name: Game-Lab-Jam-VT25
 - Unity version: Unity 6000.0.43f1
 - Active game object:
-  - Name: Upgrades
+  - Name: Coint
   - Tag: Untagged
-  - Layer: Default
+  - Layer: Collectable
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
