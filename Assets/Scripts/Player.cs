@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     [SerializeField] TMP_Text nextLevelText;
 
     [SerializeField] protected Shop shop;
+    [SerializeField] protected GunShop gunShop;
 
     float xRotation = 0;
 
@@ -44,10 +45,20 @@ public class Player : MonoBehaviour
         expSlider.maxValue = expRequiredToLevel;
         currentLevelText.text = level.ToString();
         nextLevelText.text = (level + 1).ToString();
+        gunShop.ActivateShop();
     }
 
     void Update()
     {
+        if (weapons.Count != 0)
+        {
+            leftHand.AssignWeapon();
+        }
+        if (weapons.Count != 0)
+        {
+            rightHand.AssignWeapon();
+        }
+
         leftHand.HandleInput();
         rightHand.HandleInput();
 
@@ -71,6 +82,7 @@ public class Player : MonoBehaviour
         weapons.RemoveAt(0);
         equippedWeapons.Add(weapon);
 
+        if (weapons.Count == 0) return weapon;
         nextWeaponImage.texture = weapons[0].GetTexture();
         nextWeaponName.text = "Next: " + weapons[0].GetName();
         return weapon;
@@ -116,7 +128,15 @@ public class Player : MonoBehaviour
     public void LevelUp(int overShoot)
     {
         level++;
-        shop.ActivateShop();
+        if (level == 4 || level == 6)
+        {
+            gunShop.ActivateShop();
+        }
+        else
+        {
+            shop.ActivateShop();
+        }
+
         expRequiredToLevel = expPerLevel[level - 1];
 
         currentExp = overShoot;
@@ -131,6 +151,13 @@ public class Player : MonoBehaviour
 
         //Spawn shop UI
     }
+
+    public void AddWeapon(Weapon weapon)
+    {
+        weapons.Add(weapon);
+    }
+
+    public float GetAvailableWeaponCount() => weapons.Count;
 
     public Vector3 GetForward() => playerCamera.transform.forward;
     public GameObject GetCamera() => playerCamera;

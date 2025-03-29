@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    [SerializeField] List<BaseUpgrade> upgrades;
+    public List<BaseUpgrade> upgrades;
     [SerializeField] GameObject rootUpgrades;
     [SerializeField] int upgradeChoices = 3;
     [SerializeField] GameObject shopCanvas;
@@ -42,10 +42,15 @@ public class Shop : MonoBehaviour
         Time.timeScale = 0;
         Cursor.lockState = CursorLockMode.None;
         ShuffleUpgrades();
+        int choices = upgrades.Count < upgradeChoices ? upgrades.Count : upgradeChoices;
         for (int i = 0; i < upgradeChoices; i++)
         {
             UpgradeCard card = upgradeDisplays[i];
             card.UpdateCard(upgrades[i].title, upgrades[i].description, upgrades[i].cost.ToString(), upgrades[i]);
+        }
+        for (int i = choices; i < upgradeDisplays.Count(); i++)
+        {
+            upgradeDisplays[i].gameObject.SetActive(false);
         }
         shopCanvas.SetActive(true);
 
