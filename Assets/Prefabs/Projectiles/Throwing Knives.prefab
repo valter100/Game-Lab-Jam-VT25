@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5298155443146501870}
   - component: {fileID: 2030413184402143388}
   - component: {fileID: 4463335086323583413}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Throwing Knives
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,6 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7088262470118004773}
+  - {fileID: 3834273326717102265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1506358231898384811
@@ -190,7 +191,7 @@ GameObject:
   - component: {fileID: 7088262470118004773}
   - component: {fileID: 3515910986842773866}
   - component: {fileID: 4974180263315595301}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,3 +266,69 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &4204228061755849853
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2486999888903914574}
+    m_Modifications:
+    - target: {fileID: 1111958525494809796, guid: 01d3a601c3ab48f48a444b5b0a125e7e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111958525494809796, guid: 01d3a601c3ab48f48a444b5b0a125e7e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111958525494809796, guid: 01d3a601c3ab48f48a444b5b0a125e7e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111958525494809796, guid: 01d3a601c3ab48f48a444b5b0a125e7e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111958525494809796, guid: 01d3a601c3ab48f48a444b5b0a125e7e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111958525494809796, guid: 01d3a601c3ab48f48a444b5b0a125e7e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111958525494809796, guid: 01d3a601c3ab48f48a444b5b0a125e7e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111958525494809796, guid: 01d3a601c3ab48f48a444b5b0a125e7e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111958525494809796, guid: 01d3a601c3ab48f48a444b5b0a125e7e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1111958525494809796, guid: 01d3a601c3ab48f48a444b5b0a125e7e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267310473937403040, guid: 01d3a601c3ab48f48a444b5b0a125e7e, type: 3}
+      propertyPath: m_Name
+      value: WindTrail
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267310473937403040, guid: 01d3a601c3ab48f48a444b5b0a125e7e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 01d3a601c3ab48f48a444b5b0a125e7e, type: 3}
+--- !u!4 &3834273326717102265 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1111958525494809796, guid: 01d3a601c3ab48f48a444b5b0a125e7e, type: 3}
+  m_PrefabInstance: {fileID: 4204228061755849853}
+  m_PrefabAsset: {fileID: 0}
