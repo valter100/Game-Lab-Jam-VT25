@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyProjectile : MonoBehaviour
 {
     public Vector3 targetDirection;
+    public float damage;
     [SerializeField] float speed = 10;
     [SerializeField] float maxDistance = 20;
     Vector3 originalLocation;
@@ -25,6 +26,7 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            other.GetComponent<PlayerHealth>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }

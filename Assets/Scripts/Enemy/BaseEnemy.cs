@@ -18,6 +18,8 @@ public abstract class BaseEnemy : MonoBehaviour
     [Header("Target")]
     [SerializeField] protected GameObject target;
 
+
+
     [Header("Resistance")]
     protected Dictionary<DamageType, float> resistances = new Dictionary<DamageType, float>();
 
@@ -32,6 +34,7 @@ public abstract class BaseEnemy : MonoBehaviour
         protected set
         {
             currentHealth = Mathf.Clamp(value, 0, maxHealth);
+
             if (currentHealth <= 0)
                 Die();
         }
@@ -39,6 +42,11 @@ public abstract class BaseEnemy : MonoBehaviour
     public void SetPlayer(GameObject player)
     {
         this.target = player;
+    }
+
+    public virtual void ReduceSpeed()
+    {
+
     }
 
     protected virtual void Awake()
@@ -57,15 +65,13 @@ public abstract class BaseEnemy : MonoBehaviour
         {
             TakeDamage(Random.Range(10f, 500f), DamageType.Fire);
         }
-
-
     }
     public virtual void TakeDamage(float damage, DamageType type)
     {
         float resistance = resistances.ContainsKey(type) ? resistances[type] : 0f;
         float finalDamage = damage * (1f - resistance);
         DamageTextSpawner.Instance.SpawnText(finalDamage, textLocation);
-
+        ReduceSpeed();
         CurrentHealth -= finalDamage;
     }
     public virtual void TakeDamage(float damage, Vector3 position, DamageType type)
@@ -73,6 +79,7 @@ public abstract class BaseEnemy : MonoBehaviour
         float resistance = resistances.ContainsKey(type) ? resistances[type] : 0f;
         float finalDamage = damage * (1f - resistance);
         DamageTextSpawner.Instance.SpawnText(finalDamage, position, type);
+        ReduceSpeed();
         CurrentHealth -= finalDamage;
     }
 
@@ -81,7 +88,7 @@ public abstract class BaseEnemy : MonoBehaviour
         float resistance = resistances.ContainsKey(type) ? resistances[type] : 0f;
         float finalDamage = damage * (1f - resistance);
         DamageTextSpawner.Instance.SpawnText(finalDamage, position, type);
-
+        ReduceSpeed();
         CurrentHealth -= finalDamage;
     }
 

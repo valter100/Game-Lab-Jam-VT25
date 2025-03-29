@@ -61,7 +61,9 @@ public class RangedStationaryEnemy : BaseEnemy
 
     public void Shoot()
     {
-        Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<EnemyProjectile>().targetDirection = (target.transform.position - transform.position).normalized;
+        EnemyProjectile proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity).GetComponent<EnemyProjectile>();
+        proj.targetDirection = (target.transform.position - transform.position).normalized;
+        proj.damage = damage;
     }
 
 }

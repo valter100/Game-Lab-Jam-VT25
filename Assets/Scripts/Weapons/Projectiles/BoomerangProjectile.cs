@@ -55,7 +55,7 @@ public class BoomerangProjectile : Projectile
 
             if(!hitEnemies.Contains(enemy))
             {
-                enemy.TakeDamage(damage, damageType);
+                enemy.TakeDamage(damage, transform.position,damageType);
                 hitEnemies.Add(enemy);
             }
         }
