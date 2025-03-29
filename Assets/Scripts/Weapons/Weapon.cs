@@ -4,11 +4,9 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] protected GameObject projectile;
-    [SerializeField] protected GameObject shootPoint;
+
     [SerializeField] protected float timeBetweenAttacks;
     [SerializeField] protected float damage;
-    [SerializeField] protected float projectileSpeed;
     [SerializeField] protected int startAmmo;
     [SerializeField] protected int currentAmmo;
     [SerializeField] Hand holdingHand;
@@ -17,7 +15,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected TMP_Text ammoText;
     [SerializeField] protected DamageType damageType;
     [SerializeField] protected Animator animator;
-    float timeSinceLastAttack;
+    protected float timeSinceLastAttack;
     protected Player player;
 
     protected void Start()
@@ -31,45 +29,6 @@ public abstract class Weapon : MonoBehaviour
         timeSinceLastAttack += Time.deltaTime;
     }
 
-    public virtual void Fire()
-    {
-        if (timeSinceLastAttack > timeBetweenAttacks)
-        {
-            timeSinceLastAttack = 0;
-            currentAmmo--;
-
-            ammoText.text = currentAmmo.ToString();
-
-            Debug.Log(gameObject.name + " FIRED!");
-
-            if (projectile)
-            {
-                GameObject spawnedProjectile = Instantiate(projectile, shootPoint.transform.position, shootPoint.transform.rotation);
-
-                animator.Play("Fire");
-
-                RaycastHit hit;
-
-                if (Physics.Raycast(player.GetCamera().transform.position, player.GetForward(), out hit, Mathf.Infinity))
-                {
-                    Vector3 direction = (hit.point - transform.position).normalized;
-                    spawnedProjectile.GetComponent<Projectile>().InitializeProjectile(damage, direction, projectileSpeed, damageType);
-                }
-                else
-                {
-                    spawnedProjectile.GetComponent<Projectile>().InitializeProjectile(damage, player.GetForward(), projectileSpeed, damageType);
-                }
-
-            }
-
-            if (currentAmmo <= 0)
-            {
-                player.ReturnWeapon(this);
-                currentAmmo = startAmmo;
-            }
-        }
-    }
-
     public void SetHoldingHand(Hand newHand)
     {
         holdingHand = newHand;
@@ -79,6 +38,7 @@ public abstract class Weapon : MonoBehaviour
 
     protected abstract void ApplyEquipBonus();
     protected abstract void RemoveEquipBonus();
+    public abstract void Attack();
 
     public Hand GetHoldingHand() => holdingHand;
     public Texture GetTexture() => weaponTexture;

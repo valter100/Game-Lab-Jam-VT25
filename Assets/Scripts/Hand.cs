@@ -20,9 +20,23 @@ public class Hand : MonoBehaviour
         {
             weapon = player.GetWeapon();
             weapon.SetHoldingHand(this);
-            weapon.transform.position = transform.position;
-            weapon.transform.rotation = transform.rotation;
-            weapon.transform.parent = transform;
+
+            if (weapon.transform.parent != null)
+            {
+                Transform parent = weapon.transform.parent;
+                parent.parent = transform;
+
+                parent.transform.position = transform.position;
+                parent.transform.rotation = transform.rotation;
+                parent.parent = transform;
+            }
+            else
+            {
+                weapon.transform.position = transform.position;
+                weapon.transform.rotation = transform.rotation;
+                weapon.transform.parent = transform;
+            }
+
             GetComponent<Renderer>().enabled = false;
         }
     }
@@ -31,7 +45,7 @@ public class Hand : MonoBehaviour
     {
         if (fireAction.action.inProgress)
         {
-            weapon.Fire();
+            weapon.Attack();
         }
     }
 

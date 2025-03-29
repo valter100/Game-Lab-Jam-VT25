@@ -15,7 +15,7 @@ public class Boomerang : RangedWeapon
         base.Update();
     }
 
-    public override void Fire()
+    public override void Attack()
     {
         if (canThrow)
         {
