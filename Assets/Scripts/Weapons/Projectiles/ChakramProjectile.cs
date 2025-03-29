@@ -18,6 +18,8 @@ public class ChakramProjectile : Projectile
     void Update()
     {
         base.Update();
+
+        //transform.rotation = Quaternion.LookRotation(direction);
     }
 
     public void SetBounces(int amount)
@@ -37,7 +39,9 @@ public class ChakramProjectile : Projectile
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             enemy.TakeDamage(damage, transform.position, damageType);
 
-            if(bounceLeft > 0)
+            SpawnEnemyEffect();
+
+            if (bounceLeft > 0)
             {
                 hitEnemies.Add(collision.collider);
                 bounceLeft--;
@@ -76,6 +80,10 @@ public class ChakramProjectile : Projectile
             {
                 Destroy(gameObject);
             }
+        }
+        else if(collision.transform.tag == "Object")
+        {
+            SpawnWallEffect();
         }
     }
 }

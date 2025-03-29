@@ -17,24 +17,24 @@ public class BoomerangProjectile : Projectile
     {
         //base.Start();
         player = FindFirstObjectByType<Player>();
-        maxRange = (direction*speed*(lifeTime/2)).magnitude;
+        maxRange = (direction * speed * (lifeTime / 2)).magnitude;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(hasBounced)
+        if (hasBounced)
         {
             direction = (player.transform.position - transform.position).normalized * 2;
         }
-        else if(!hasBounced )
+        else if (!hasBounced)
         {
             rangedTraveled += (direction * speed * Time.deltaTime).magnitude;
         }
 
         transform.position += direction * speed * Time.deltaTime;
-        
-        if(rangedTraveled >= maxRange && !hasBounced)
+
+        if (rangedTraveled >= maxRange && !hasBounced)
         {
             Bounce();
         }
@@ -53,21 +53,24 @@ public class BoomerangProjectile : Projectile
         {
             BaseEnemy enemy = collision.gameObject.GetComponent<BaseEnemy>();
 
-            if(!hitEnemies.Contains(enemy))
+            if (!hitEnemies.Contains(enemy))
             {
-                enemy.TakeDamage(damage, transform.position,damageType);
+                SpawnEnemyEffect();
+
+                enemy.TakeDamage(damage, damageType);
                 hitEnemies.Add(enemy);
             }
         }
-        else if(collision.gameObject.tag == "Object" && !hasBounced)
+        else if (collision.gameObject.tag == "Object" && !hasBounced)
         {
+            SpawnWallEffect();
             Bounce();
         }
-        else if(collision.gameObject.tag == "Player" && hasBounced)
+        else if (collision.gameObject.tag == "Player" && hasBounced)
         {
-            if(firedWeapon)
+            if (firedWeapon)
             {
-                firedWeapon.SetCanThrow(true);
+                firedWeapon.PlayGrabAnimation();
             }
             Destroy(gameObject);
         }
@@ -76,5 +79,10 @@ public class BoomerangProjectile : Projectile
     public void SetFiredWeapon(Boomerang weapon)
     {
         firedWeapon = weapon;
+    }
+
+    private void OnDestroy()
+    {
+        firedWeapon.SetCanThrow(true);
     }
 }

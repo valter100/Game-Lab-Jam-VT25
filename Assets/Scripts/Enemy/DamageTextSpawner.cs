@@ -10,6 +10,8 @@ public class DamageTextSpawner : MonoBehaviour
     [SerializeField] Color colorFire;
     [SerializeField] Color colorWater;
 
+    [SerializeField] Vector3 spawnOffset;
+
     public void Start()
     {
         Instance = this;
@@ -17,15 +19,14 @@ public class DamageTextSpawner : MonoBehaviour
 
     public void SpawnText(float damage, Transform parent) // ADD COLOR FOR CRIT
     {
-        GameObject go = Instantiate(textPrefab, parent.transform.position, Quaternion.identity, parent);
+        GameObject go = Instantiate(textPrefab, parent.transform.position + spawnOffset, Quaternion.identity, parent);
         go.GetComponentInChildren<TextMeshProUGUI>().text = ((int)damage).ToString();
         Destroy(go, 2f);
     }
 
     public void SpawnText(float damage, Vector3 position, DamageType damageType) // ADD COLOR FOR CRIT
     {
-        position.y -= 0.25f;
-        GameObject go = Instantiate(textPrefab, position, Quaternion.identity);
+        GameObject go = Instantiate(textPrefab, position + spawnOffset, Quaternion.identity);
         var textMesh = go.GetComponentInChildren<TextMeshProUGUI>();
         textMesh.text = ((int)damage).ToString();
         switch (damageType)
