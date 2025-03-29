@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        expRequiredToLevel = expPerLevel[level - 1];
     }
 
     void Update()
@@ -78,9 +79,9 @@ public class Player : MonoBehaviour
 
         transform.Translate(movement, Space.World);
 
-        transform.Rotate(Vector3.up * lookAction.action.ReadValue<Vector2>().x);
+        transform.Rotate(Vector3.up * lookAction.action.ReadValue<Vector2>().x * rotationSensitivity);
 
-        xRotation -= lookAction.action.ReadValue<Vector2>().y;
+        xRotation -= lookAction.action.ReadValue<Vector2>().y * rotationSensitivity;
         xRotation = Mathf.Clamp(xRotation, -90, 90);
 
         playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
@@ -99,7 +100,7 @@ public class Player : MonoBehaviour
     public void LevelUp()
     {
         level++;
-        expRequiredToLevel = expPerLevel[level] + expRequiredToLevel;
+        expRequiredToLevel = expPerLevel[level - 1] + expRequiredToLevel;
 
         //Spawn shop UI
     }

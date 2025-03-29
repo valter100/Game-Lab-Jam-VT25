@@ -35,6 +35,7 @@ public class ChakramProjectile : Projectile
             if(bounceLeft > 0)
             {
                 hitEnemies.Add(collision.collider);
+                bounceLeft--;
 
                 Collider[] nearbyEnemies = Physics.OverlapSphere(collision.transform.position, bounceRadius, LayerMask.GetMask("Enemy"));
 
