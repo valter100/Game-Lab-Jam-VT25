@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8571544939454210274}
   - component: {fileID: 8802836059257114734}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: EnemyWater
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,8 +153,8 @@ MonoBehaviour:
   target: {fileID: 0}
   textLocation: {fileID: 982170413260420646}
   resistanceList:
-  - damageType: 1
-    resistanceValue: -1
+  - damageType: 2
+    resistanceValue: 0.5
 --- !u!1 &7040300469092236668
 GameObject:
   m_ObjectHideFlags: 0

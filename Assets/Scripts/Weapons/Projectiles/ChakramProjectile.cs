@@ -30,7 +30,7 @@ public class ChakramProjectile : Projectile
         if (collision.gameObject.GetComponent<Enemy>())
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            enemy.TakeDamage(damage, damageType);
+            enemy.TakeDamage(damage, transform.position, damageType);
 
             if(bounceLeft > 0)
             {

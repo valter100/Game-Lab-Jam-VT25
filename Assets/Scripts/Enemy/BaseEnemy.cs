@@ -24,6 +24,8 @@ public abstract class BaseEnemy : MonoBehaviour
     [SerializeField] Transform textLocation;
 
     [SerializeField] private List<DamageResistance> resistanceList = new List<DamageResistance>();
+
+    public Dictionary<DamageType, float> Resistances => resistances;
     public float CurrentHealth
     {
         get => currentHealth;
@@ -70,7 +72,7 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         float resistance = resistances.ContainsKey(type) ? resistances[type] : 0f;
         float finalDamage = damage * (1f - resistance);
-        DamageTextSpawner.Instance.SpawnText(finalDamage, textLocation);
+        DamageTextSpawner.Instance.SpawnText(finalDamage, position, type);
         CurrentHealth -= finalDamage;
     }
 
