@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using System.Linq;
+using System.Collections.Generic;
 
 public class Spawning : MonoBehaviour
 {
@@ -40,7 +41,10 @@ public class Spawning : MonoBehaviour
     public void SpawnEnemies()
     {
         waveCount++;
-        Transform randomPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+        Transform closestPoint = spawnPoints.OrderBy(spawnPoint => Vector3.Distance(player.transform.position, spawnPoint.position)).First();
+
+        List<Transform> validPoints = spawnPoints.Where(p => p != closestPoint).ToList();
+        Transform randomPoint = validPoints[Random.Range(0, validPoints.Count)];
         int spawnedEnemy = Random.Range(0, prefabList.Length);
         int enemiesToSpawn = baseEnemiesPerWave + Mathf.FloorToInt(Mathf.Log(waveCount + 1) * 3);
         float scaledValue = Mathf.Pow(scalingAmount, waveCount);
@@ -89,5 +93,10 @@ public class Spawning : MonoBehaviour
         }
 
 
+    }
+
+    public void GetMoreCoins(float coins)
+    {
+        CoinManager.Instance.PickUp(coins * waveCount);
     }
 }

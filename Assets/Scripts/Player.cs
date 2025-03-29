@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] protected Shop shop;
     [SerializeField] protected GunShop gunShop;
+    [SerializeField] protected CharacterController cc;
 
     float xRotation = 0;
 
@@ -50,17 +51,19 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (weapons.Count != 0)
-        {
-            leftHand.AssignWeapon();
-        }
+
         if (weapons.Count != 0)
         {
             rightHand.AssignWeapon();
         }
 
-        leftHand.HandleInput();
+        if (weapons.Count != 0)
+        {
+            leftHand.AssignWeapon();
+        }
         rightHand.HandleInput();
+        leftHand.HandleInput();
+
 
         HandleInput();
     }
@@ -99,10 +102,11 @@ public class Player : MonoBehaviour
         Vector3 sideMovement = transform.right * moveSide * movementSpeed * Time.deltaTime;
 
         Vector3 movement = forwardMovement + sideMovement;
+        cc.Move(movement);
 
         transform.Translate(movement, Space.World);
 
-        if (!shop.ShopCanvas.activeSelf)
+        if (!shop.ShopCanvas.activeSelf && !gunShop.ShopCanvas.activeSelf)
         {
             transform.Rotate(Vector3.up * lookAction.action.ReadValue<Vector2>().x * rotationSensitivity);
 

@@ -9,7 +9,7 @@ public class GunShop : MonoBehaviour
     [SerializeField] GameObject shopCanvas;
     [SerializeField] Player player;
     [SerializeField] Shop shop;
-
+    public GameObject ShopCanvas => shopCanvas;
     void Start()
     {
         
