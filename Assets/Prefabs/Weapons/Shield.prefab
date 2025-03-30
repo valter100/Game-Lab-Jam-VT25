@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4220493552728770747}
   - component: {fileID: 7090464125683584008}
   - component: {fileID: 1952442975732848386}
-  - component: {fileID: 7919625058926419390}
-  - component: {fileID: 2684759345240341981}
+  - component: {fileID: 2271175376732372747}
+  - component: {fileID: 3641948803433564181}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -88,28 +88,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 311206743611265752}
   m_Mesh: {fileID: 5218869164820102083, guid: 16cc45a1537ff5145ae7fe12d8554d0e, type: 3}
---- !u!65 &7919625058926419390
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311206743611265752}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.22339001, y: 0.15898383, z: 1}
-  m_Center: {x: 0, y: 0, z: 0.63}
---- !u!95 &2684759345240341981
+--- !u!95 &2271175376732372747
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -119,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 311206743611265752}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: feb48ec45b0d72b49abba194fe824dbd, type: 2}
+  m_Controller: {fileID: 9100000, guid: b3015daceed54624a8c0197c04aad724, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -131,6 +110,30 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3641948803433564181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311206743611265752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6acb052a8b1af44a9a1a05a7395fb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: 6
+  damage: 0
+  startAmmo: 2
+  currentAmmo: 0
+  holdingHand: {fileID: 0}
+  weaponName: Shield
+  weaponDescription: 
+  weaponTexture: {fileID: 2800000, guid: 618935b3f117593459cb9a36f842803b, type: 3}
+  ammoText: {fileID: 0}
+  damageType: 0
+  animator: {fileID: 2271175376732372747}
+  upgradesHolder: {fileID: 0}
 --- !u!1 &4322019766676495564
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4322019766676495564}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5, y: 0.5, z: 0.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

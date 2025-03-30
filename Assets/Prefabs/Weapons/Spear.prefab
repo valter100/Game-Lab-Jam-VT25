@@ -122,16 +122,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 620fc5e700955d941ae2cec36ee731f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenAttacks: 2
-  damage: 50
-  startAmmo: 5
+  timeBetweenAttacks: 3
+  damage: 120
+  startAmmo: 3
   currentAmmo: 0
   holdingHand: {fileID: 0}
   weaponName: Spear
+  weaponDescription: 
   weaponTexture: {fileID: 2800000, guid: dffef66376be4fa480fb02b19edbe903, type: 3}
   ammoText: {fileID: 0}
   damageType: 2
-  animator: {fileID: 0}
+  animator: {fileID: 3365948984457933899}
+  upgradesHolder: {fileID: 0}
 --- !u!95 &3365948984457933899
 Animator:
   serializedVersion: 7
@@ -178,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8487276593907268053}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5, y: 0.5, z: 0.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
