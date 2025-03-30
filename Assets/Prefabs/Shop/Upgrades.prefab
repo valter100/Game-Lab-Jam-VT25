@@ -462,7 +462,7 @@ MonoBehaviour:
   currentLevel: 0
   maxLevel: 4
   title: All Projectile Speed
-  description: Gives a slight projectile speed buff to all weapons
+  description: Gives a slight projectile speed buff to all ranged weapons
   cost: 5
   weapons:
   - {fileID: 0}
