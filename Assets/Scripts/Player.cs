@@ -52,15 +52,15 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-        if (weapons.Count != 0)
-        {
-            rightHand.AssignWeapon();
-        }
+        //if (weapons.Count != 0)
+        //{
+        //    rightHand.AssignWeapon();
+        //}
 
-        if (weapons.Count != 0)
-        {
-            leftHand.AssignWeapon();
-        }
+        //if (weapons.Count != 0)
+        //{
+        //    leftHand.AssignWeapon();
+        //}
         rightHand.HandleInput();
         leftHand.HandleInput();
 
@@ -73,11 +73,15 @@ public class Player : MonoBehaviour
         equippedWeapons.Remove(weapon);
         weapons.Add(weapon);
 
+        Hand hand = weapon.GetHoldingHand();
+
         weapon.GetHoldingHand().SetWeapon(null);
+
+        hand.EquipWeapon();
 
         Transform weaponTransform = null;
 
-        if(weapon.transform.parent && !weapon.transform.parent.GetComponent<Hand>())
+        if (weapon.transform.parent && !weapon.transform.parent.GetComponent<Hand>())
         {
             weaponTransform = weapon.transform.parent;
         }
@@ -169,7 +173,19 @@ public class Player : MonoBehaviour
 
     public void AddWeapon(Weapon weapon)
     {
+
         weapons.Add(weapon);
+        if (!leftHand.GetWeapon())
+        {
+            leftHand.EquipWeapon();
+            return;
+        }
+
+        if (!rightHand.GetWeapon())
+        {
+            rightHand.EquipWeapon();
+            return;
+        }
     }
 
     public float GetAvailableWeaponCount() => weapons.Count;
