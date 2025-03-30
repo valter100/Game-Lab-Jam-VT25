@@ -2,32 +2,43 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 using static BaseEnemy;
+using Random = UnityEngine.Random;
 
 public abstract class BaseEnemy : MonoBehaviour
 {
     [Header("Stats")]
     [SerializeField] protected float maxHealth = 100f;
     protected float currentHealth;
+    [SerializeField] int expGiven;
     [Header("Movement")]
     [SerializeField] protected float moveSpeed = 3f;
     [Header("Combat")]
     [SerializeField] protected float damage = 3f;
     [Header("Target")]
     [SerializeField] protected GameObject target;
-    protected NavMeshAgent agent;
+
+
+
     [Header("Resistance")]
     protected Dictionary<DamageType, float> resistances = new Dictionary<DamageType, float>();
 
     [SerializeField] private List<DamageResistance> resistanceList = new List<DamageResistance>();
+
+    public Dictionary<DamageType, float> Resistances => resistances;
     public float CurrentHealth
     {
         get => currentHealth;
         protected set
         {
             currentHealth = Mathf.Clamp(value, 0, maxHealth);
+
             if (currentHealth <= 0)
+            {
+                
                 Die();
+            }
         }
     }
     public void SetPlayer(GameObject player)
@@ -35,10 +46,15 @@ public abstract class BaseEnemy : MonoBehaviour
         this.target = player;
     }
 
+    public virtual void ReduceSpeed()
+    {
+
+    }
+
     protected virtual void Awake()
     {
         CurrentHealth = maxHealth;
-        agent = GetComponent<NavMeshAgent>();
+
         InitializeResistances();
     }
 
@@ -46,17 +62,22 @@ public abstract class BaseEnemy : MonoBehaviour
     {
         HandleMovement();
         HandleCombat();
-
-        if (agent.speed != moveSpeed)
-        {
-            agent.speed = moveSpeed;
-        }
     }
-    public virtual void TakeDamage(float damage, DamageType type)
+    public virtual void TakeDamage(float damage, Vector3 position, DamageType type)
     {
         float resistance = resistances.ContainsKey(type) ? resistances[type] : 0f;
         float finalDamage = damage * (1f - resistance);
+        DamageTextSpawner.Instance.SpawnText(finalDamage, position, type);
+        ReduceSpeed();
+        CurrentHealth -= finalDamage;
+    }
 
+    public virtual void TakeDamage(float damage, DamageType type, Vector3 position, bool crit)
+    {
+        float resistance = resistances.ContainsKey(type) ? resistances[type] : 0f;
+        float finalDamage = damage * (1f - resistance);
+        DamageTextSpawner.Instance.SpawnText(finalDamage, position, type);
+        ReduceSpeed();
         CurrentHealth -= finalDamage;
     }
 
@@ -72,6 +93,7 @@ public abstract class BaseEnemy : MonoBehaviour
     protected virtual void Die()
     {
         CoinManager.Instance.SpawnCoin(transform.position);
+        target.GetComponent<Player>().GainExp(expGiven);
         Destroy(gameObject);
     }
 
@@ -80,12 +102,26 @@ public abstract class BaseEnemy : MonoBehaviour
 
     //public abstract void DropCoins();
 
+    public virtual void UpdateMoveSpeed(float percentage)
+    {
+        moveSpeed *= percentage;
+    }
 
+    public virtual void UpdateDamage(float percentage)
+    {
+        damage *= percentage;
+    }
+
+    public virtual void UpdateHealth(float percentage)
+    {
+        maxHealth *= percentage;
+        currentHealth = maxHealth;
+    }
     public void IncreaseScaling(float amount)
     {
-        maxHealth*= amount;
-        
-        currentHealth*= maxHealth;
+        maxHealth *= amount;
+
+        currentHealth *= maxHealth;
 
         damage *= amount;
     }
@@ -100,6 +136,7 @@ public class DamageResistance
 
 public enum DamageType
 {
+    None,
     Fire,
     Water,
     Earth,

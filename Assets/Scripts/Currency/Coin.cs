@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class Coin : MonoBehaviour, Collectable
 {
+    [SerializeField] float rotationSpeed = 1f;
     [SerializeField] float speed = 1f;
     [SerializeField] private float value = 1;
     public float Value => value;
+    private Transform player;
+    private bool flying = false;
     void Start()
     {
         
@@ -12,11 +15,33 @@ public class Coin : MonoBehaviour
 
     void Update()
     {
-        transform.Rotate(Vector3.right * Time.deltaTime * speed);
+        transform.Rotate(new Vector3(1, 1, 1) * Time.deltaTime * rotationSpeed);
+        if(flying && player != null)
+        {
+            transform.position = Vector3.Lerp(transform.position, player.position, speed * Time.deltaTime);
+
+            if (Vector3.Distance(transform.position, player.position) < 0.5f)
+            {
+                OnPickup();
+                Destroy(gameObject);
+            }
+        }
+
+
     }
 
-    public void PickUp()
+    public void OnPickup()
     {
         CoinManager.Instance.PickUp(value);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PickupRadius"))
+        {
+
+            player = other.transform;
+            flying = true;
+        }
     }
 }
