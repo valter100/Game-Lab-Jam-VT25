@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject playerCamera;
 
     [SerializeField] RawImage nextWeaponImage;
+    [SerializeField] Animator weaponImageAnim;
     [SerializeField] TMP_Text nextWeaponName;
 
     [SerializeField] int level = 1;
@@ -51,16 +52,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-
-        //if (weapons.Count != 0)
-        //{
-        //    rightHand.AssignWeapon();
-        //}
-
-        //if (weapons.Count != 0)
-        //{
-        //    leftHand.AssignWeapon();
-        //}
         rightHand.HandleInput();
         leftHand.HandleInput();
 
@@ -103,10 +94,21 @@ public class Player : MonoBehaviour
         weapons.RemoveAt(0);
         equippedWeapons.Add(weapon);
 
-        if (weapons.Count == 0) return weapon;
-        nextWeaponImage.texture = weapons[0].GetTexture();
-        nextWeaponName.text = "Next: " + weapons[0].GetName();
+        if (weapons.Count == 0)
+        {
+            ChangeWeaponImage(weapon);
+            return weapon;
+        }
+
+        ChangeWeaponImage(weapons[0]);
         return weapon;
+    }
+
+    public void ChangeWeaponImage(Weapon newWeapon)
+    {
+        weaponImageAnim.Play("ImageChangeWeapon");
+        nextWeaponImage.texture = newWeapon.GetTexture();
+        nextWeaponName.text = "Next: " + newWeapon.GetName();
     }
 
     public void HandleInput()
