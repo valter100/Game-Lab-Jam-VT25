@@ -17,7 +17,7 @@ public class BoomerangProjectile : Projectile
     {
         //base.Start();
         player = FindFirstObjectByType<Player>();
-        maxRange = (direction * speed * (lifeTime / 2)).magnitude;
+        maxRange = (direction * speed * (lifeTime / 2.5f)).magnitude;
     }
 
     // Update is called once per frame
@@ -44,6 +44,7 @@ public class BoomerangProjectile : Projectile
     {
         hasBounced = true;
         rangedTraveled = 0;
+        lifeTime = 0;
         hitEnemies.Clear();
     }
 
