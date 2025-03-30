@@ -68,30 +68,33 @@ public class Player : MonoBehaviour
         HandleInput();
     }
 
-    public void ReturnWeapon(Weapon weapon)
+    public void ReturnWeapon(Weapon oldWeapon)
     {
-        equippedWeapons.Remove(weapon);
-        weapons.Add(weapon);
+        equippedWeapons.Remove(oldWeapon);
+        weapons.Add(oldWeapon);
 
-        Hand hand = weapon.GetHoldingHand();
+        Hand hand = oldWeapon.GetHoldingHand();
 
-        weapon.GetHoldingHand().SetWeapon(null);
+        oldWeapon.GetHoldingHand().SetWeapon(null);
 
         hand.EquipWeapon();
 
-        Transform weaponTransform = null;
 
-        if (weapon.transform.parent && !weapon.transform.parent.GetComponent<Hand>())
+        if(oldWeapon != hand.GetWeapon())
         {
-            weaponTransform = weapon.transform.parent;
-        }
-        else
-        {
-            weaponTransform = weapon.transform;
-        }
+            Transform weaponTransform = null;
 
-        weaponTransform.transform.parent = null;
-        weaponTransform.transform.position = new Vector3(0, 0, 10000);
+            if (oldWeapon.transform.parent && !oldWeapon.transform.parent.GetComponent<Hand>())
+            {
+                weaponTransform = oldWeapon.transform.parent;
+            }
+            else
+            {
+                weaponTransform = oldWeapon.transform;
+            }
+            weaponTransform.transform.parent = null;
+            weaponTransform.transform.position = new Vector3(0, 0, 10000);
+        }
     }
 
     public Weapon GetWeapon()
