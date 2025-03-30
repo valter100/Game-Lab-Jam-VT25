@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5114197791434406327}
   - component: {fileID: 8052013742964003165}
   - component: {fileID: 8621304707738639606}
+  - component: {fileID: 4700733583306499076}
+  - component: {fileID: 3133588005289637342}
   m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
@@ -28,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1888460042405901487}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.49, y: 0.884, z: -0.794}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -102,12 +104,59 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.22339001, y: 0.15898383, z: 1}
+  m_Center: {x: 0, y: 0, z: 0.63}
+--- !u!114 &4700733583306499076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888460042405901487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e452496213d42d245a8dcbbefb495108, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: 1
+  damage: 10
+  startAmmo: 10
+  currentAmmo: 0
+  holdingHand: {fileID: 0}
+  weaponName: Sword
+  weaponDescription: 
+  weaponTexture: {fileID: 2800000, guid: 8d308eda712953b4baef7b416fa403b5, type: 3}
+  ammoText: {fileID: 0}
+  damageType: 3
+  animator: {fileID: 3133588005289637342}
+  upgradesHolder: {fileID: 0}
+  knockbackStrength: 0
+--- !u!95 &3133588005289637342
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888460042405901487}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: feb48ec45b0d72b49abba194fe824dbd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3325005267082069825
 GameObject:
   m_ObjectHideFlags: 0
