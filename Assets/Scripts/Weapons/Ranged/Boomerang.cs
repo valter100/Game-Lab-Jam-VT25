@@ -45,13 +45,6 @@ public class Boomerang : RangedWeapon
             }
 
             canThrow = false;
-
-            if (currentAmmo <= 0)
-            {
-                player.ReturnWeapon(this);
-                canThrow = true;
-                currentAmmo = startAmmo;
-            }
         }
     }
 
@@ -67,8 +60,19 @@ public class Boomerang : RangedWeapon
 
     public void PlayGrabAnimation()
     {
+        if (currentAmmo <= 0)
+        {
+            player.ReturnWeapon(this);
+            canThrow = true;
+            currentAmmo = startAmmo;
+        }
+        else
+        {
+            animator.Play("Grab");
+        }
+        
         transform.localScale = Vector3.one;
-        animator.Play("Grab");
+
     }
 
     protected override void ApplyEquipBonus()
