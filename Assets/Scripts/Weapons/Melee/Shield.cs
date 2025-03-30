@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class Shield : MeleeWeapon
 {
+    public float shieldValue = 0.5f;
+    
     bool isGuarding;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    // Start is called
+    // once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         base.Start();
@@ -59,5 +62,10 @@ public class Shield : MeleeWeapon
     protected override void RemoveEquipBonus()
     {
         throw new System.NotImplementedException();
+    }
+
+    public void IncreaseShieldValue(float amount)
+    {
+        shieldValue -= amount;
     }
 }
