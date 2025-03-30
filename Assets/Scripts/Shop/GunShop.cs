@@ -52,7 +52,7 @@ public class GunShop : MonoBehaviour
         }
         for (int i = choices; i < weaponDisplays.Count(); i++)
         {
-            weaponDisplays[i].gameObject.SetActive(false);
+            weaponDisplays[i].gameObject.SetActive(false    );
         }
         shopCanvas.SetActive(true);
     }

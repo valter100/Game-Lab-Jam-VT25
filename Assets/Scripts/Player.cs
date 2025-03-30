@@ -124,7 +124,11 @@ public class Player : MonoBehaviour
         Vector3 movement = forwardMovement + sideMovement;
         cc.Move(movement);
 
-        transform.Translate(movement, Space.World);
+        //transform.Translate(movement, Space.World);
+        if (!cc.isGrounded)
+        {
+            cc.Move(new Vector3(0, -2, 0) * Time.deltaTime);
+        }
 
         if (!shop.ShopCanvas.activeSelf && !gunShop.ShopCanvas.activeSelf)
         {

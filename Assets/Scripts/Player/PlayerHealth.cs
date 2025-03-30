@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -43,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
-
+        SceneManager.LoadScene("Start");
     }
 
 }
