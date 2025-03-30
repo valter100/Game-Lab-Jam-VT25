@@ -48,7 +48,7 @@ public class GunShop : MonoBehaviour
         for (int i = 0; i < choices; i++)
         {
             WeaponCard card = weaponDisplays[i];
-            card.UpdateCard(weapons[i].GetName(), weapons[i].GetDescription(), weapons[i]);
+            card.UpdateCard(weapons[i].GetName(), weapons[i].GetDescription(), weapons[i], weapons[i].GetTexture());
         }
         for (int i = choices; i < weaponDisplays.Count(); i++)
         {

@@ -46,7 +46,7 @@ public class Shop : MonoBehaviour
         for (int i = 0; i < upgradeChoices; i++)
         {
             UpgradeCard card = upgradeDisplays[i];
-            card.UpdateCard(upgrades[i].title, upgrades[i].description, upgrades[i].cost.ToString(), upgrades[i]);
+            card.UpdateCard(upgrades[i].title, upgrades[i].description, upgrades[i].cost.ToString(), upgrades[i], upgrades[i].imageTexture);
         }
         for (int i = choices; i < upgradeDisplays.Count(); i++)
         {

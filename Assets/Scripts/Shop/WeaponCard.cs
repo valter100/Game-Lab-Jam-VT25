@@ -8,7 +8,7 @@ public class WeaponCard : MonoBehaviour
     [Header("Information")]
     [SerializeField] TextMeshProUGUI title;
     [SerializeField] TextMeshProUGUI description;
-    [SerializeField] Image image;
+    [SerializeField] RawImage image;
     [SerializeField] Weapon weapon;
     void Start()
     {
@@ -21,11 +21,12 @@ public class WeaponCard : MonoBehaviour
         
     }
 
-    public void UpdateCard(string title, string description, Weapon weapon)
+    public void UpdateCard(string title, string description, Weapon weapon, Texture weaponImage)
     {
         this.title.text = title;
         this.description.text = description;
         this.weapon = weapon;
+        this.image.texture = weaponImage;
     }
 
     public void ChooseWeapon()

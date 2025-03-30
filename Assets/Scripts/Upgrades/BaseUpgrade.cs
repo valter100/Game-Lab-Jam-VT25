@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class BaseUpgrade : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public abstract class BaseUpgrade : MonoBehaviour
     public string title;
     public string description;
     public float cost;
+    public Texture imageTexture;
 
     public virtual void DoUpgrade()
     {
