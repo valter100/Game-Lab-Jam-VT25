@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -42,6 +43,9 @@ public class Player : MonoBehaviour
         expSlider.maxValue = expRequiredToLevel;
         currentLevelText.text = level.ToString();
         nextLevelText.text = (level + 1).ToString();
+
+        leftHand.EquipWeapon();
+        rightHand.EquipWeapon();
     }
 
     void Update()
@@ -57,7 +61,11 @@ public class Player : MonoBehaviour
         equippedWeapons.Remove(weapon);
         weapons.Add(weapon);
 
+        Hand hand = weapon.GetHoldingHand();
+
         weapon.GetHoldingHand().SetWeapon(null);
+
+        hand.EquipWeapon();
 
         Transform weaponTransform = null;
 
