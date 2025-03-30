@@ -36,6 +36,258 @@ Transform:
   - {fileID: 5111840637650072341}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2615771188581507957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8742667408197349397}
+  - component: {fileID: 3084208857801605178}
+  m_Layer: 0
+  m_Name: Damage Buff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8742667408197349397
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2615771188581507957}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4176991548845105657}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3084208857801605178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2615771188581507957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46996d5b2839a84c9d4523768773085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  maxLevel: 4
+  title: Daggers attack
+  description: Gives the Spear more damage
+  cost: 8
+  weapons:
+  - {fileID: 0}
+  damageBuff: 1
+--- !u!1 &3876107403348479785
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5516796627900083730}
+  - component: {fileID: 2899614120259259844}
+  m_Layer: 0
+  m_Name: Damage Buff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5516796627900083730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3876107403348479785}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6215453015996535797}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2899614120259259844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3876107403348479785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46996d5b2839a84c9d4523768773085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  maxLevel: 4
+  title: Daggers attack
+  description: Gives the Shield more damage
+  cost: 8
+  weapons:
+  - {fileID: 0}
+  damageBuff: 1
+--- !u!1 &4236761198142225342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6215453015996535797}
+  m_Layer: 0
+  m_Name: Shield
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6215453015996535797
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4236761198142225342}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5516796627900083730}
+  m_Father: {fileID: 381262816035231057}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5167642530194685786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4176991548845105657}
+  m_Layer: 0
+  m_Name: Spear
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4176991548845105657
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5167642530194685786}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8742667408197349397}
+  m_Father: {fileID: 381262816035231057}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5456448150600760367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 283427337789869875}
+  - component: {fileID: 9131028782393434609}
+  m_Layer: 0
+  m_Name: Damage Buff
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &283427337789869875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5456448150600760367}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2264591841729712271}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9131028782393434609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5456448150600760367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c46996d5b2839a84c9d4523768773085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  maxLevel: 4
+  title: Daggers attack
+  description: Gives the Sword more damage
+  cost: 8
+  weapons:
+  - {fileID: 0}
+  damageBuff: 1
+--- !u!1 &6836816150540353409
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2264591841729712271}
+  m_Layer: 0
+  m_Name: Sword
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2264591841729712271
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6836816150540353409}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 283427337789869875}
+  m_Father: {fileID: 381262816035231057}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &850102087203665456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56,6 +308,10 @@ PrefabInstance:
       propertyPath: shopCanvas
       value: 
       objectReference: {fileID: 7803298236663456264}
+    - target: {fileID: 3144585371700305987, guid: 2dd3148f60a22f9448a7481e5c1a0706, type: 3}
+      propertyPath: weapons.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3144585371700305987, guid: 2dd3148f60a22f9448a7481e5c1a0706, type: 3}
       propertyPath: 'weaponDisplays.Array.data[0]'
       value: 
@@ -177,9 +433,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Upgrades
       objectReference: {fileID: 0}
+    - target: {fileID: 6100788021151025831, guid: b0bef5900605977469dac8210411f837, type: 3}
+      propertyPath: weapons.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1670215893295649598, guid: b0bef5900605977469dac8210411f837, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6215453015996535797}
+    - targetCorrespondingSourceObject: {fileID: 1670215893295649598, guid: b0bef5900605977469dac8210411f837, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4176991548845105657}
+    - targetCorrespondingSourceObject: {fileID: 1670215893295649598, guid: b0bef5900605977469dac8210411f837, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2264591841729712271}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0bef5900605977469dac8210411f837, type: 3}
 --- !u!4 &381262816035231057 stripped
@@ -246,7 +515,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 305020641563294797, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9800.068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 305020641563294797, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -254,23 +523,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 305020641563294797, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 305020641563294797, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 305020641563294797, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 305020641563294797, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0003386736
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 305020641563294797, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.010126695
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 305020641563294797, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -284,6 +553,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1427143149981524986, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_fontSize
+      value: 88.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1447177348195917131, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
       propertyPath: shop
       value: 
@@ -292,10 +565,54 @@ PrefabInstance:
       propertyPath: shop
       value: 
       objectReference: {fileID: 8184859265752052345}
+    - target: {fileID: 1649565995377365561, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_fontSize
+      value: 78.7
+      objectReference: {fileID: 0}
     - target: {fileID: 1984707628014114100, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
       propertyPath: shop
       value: 
       objectReference: {fileID: 8184859265752052345}
+    - target: {fileID: 2408213184816154711, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_fontSize
+      value: 88.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920688393296533737, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920688393296533737, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920688393296533737, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 49.444447
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920688393296533737, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -180.83333
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941311036729968651, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941311036729968651, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941311036729968651, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 267.22223
+      objectReference: {fileID: 0}
+    - target: {fileID: 3941311036729968651, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -180.83333
+      objectReference: {fileID: 0}
+    - target: {fileID: 4128170411394058141, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_fontSize
+      value: 78.7
+      objectReference: {fileID: 0}
     - target: {fileID: 4252262668451719493, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
       propertyPath: m_Name
       value: Shop canvas
@@ -304,6 +621,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 8184859265752052345}
+    - target: {fileID: 7120108618830866319, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120108618830866319, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120108618830866319, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 158.33334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120108618830866319, guid: 02951b3378a81874f9d231cebc5e6ff6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -180.83333
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
