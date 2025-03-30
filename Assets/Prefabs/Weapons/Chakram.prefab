@@ -47,19 +47,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20483d5ce777cf4e990a606776af14c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 2098097586935676206, guid: 11198fd9e64755d4d980cce95944f0a4, type: 3}
-  shootPoint: {fileID: 488418040945844149}
   timeBetweenAttacks: 1
   damage: 12
-  projectileSpeed: 12
   startAmmo: 8
   currentAmmo: 0
   holdingHand: {fileID: 0}
   weaponName: Chakram
+  weaponDescription: 
   weaponTexture: {fileID: 2800000, guid: 3c850a2201be12346a0e49350689aaad, type: 3}
   ammoText: {fileID: 0}
-  damageType: 3
+  damageType: 1
   animator: {fileID: 0}
+  upgradesHolder: {fileID: 0}
+  projectile: {fileID: 2098097586935676206, guid: 11198fd9e64755d4d980cce95944f0a4, type: 3}
+  shootPoint: {fileID: 488418040945844149}
+  projectileSpeed: 12
+  bounceAmount: 2
 --- !u!95 &614029221340584271
 Animator:
   serializedVersion: 7

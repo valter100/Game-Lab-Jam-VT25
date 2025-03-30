@@ -123,13 +123,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 3
-  damage: 120
-  startAmmo: 3
+  damage: 30
+  startAmmo: 4
   currentAmmo: 0
   holdingHand: {fileID: 0}
   weaponName: Spear
   weaponDescription: 
-  weaponTexture: {fileID: 2800000, guid: dffef66376be4fa480fb02b19edbe903, type: 3}
+  weaponTexture: {fileID: 2800000, guid: d80bfa6109a892948bd14f57c468641b, type: 3}
   ammoText: {fileID: 0}
   damageType: 2
   animator: {fileID: 3365948984457933899}

@@ -129,11 +129,12 @@ MonoBehaviour:
   holdingHand: {fileID: 0}
   weaponName: Shield
   weaponDescription: 
-  weaponTexture: {fileID: 2800000, guid: 618935b3f117593459cb9a36f842803b, type: 3}
+  weaponTexture: {fileID: 2800000, guid: 6606fc0c6a39ebf4cba23fcaf522cb3b, type: 3}
   ammoText: {fileID: 0}
   damageType: 0
   animator: {fileID: 2271175376732372747}
   upgradesHolder: {fileID: 0}
+  shieldValue: 0.5
 --- !u!1 &4322019766676495564
 GameObject:
   m_ObjectHideFlags: 0

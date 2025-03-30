@@ -416,19 +416,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39354e45f0b47044993716d9ee1aa55c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 7924089026721829593, guid: 4964192795489bd499c7534aea76e055, type: 3}
-  shootPoint: {fileID: 1543679609430437840}
   timeBetweenAttacks: 3
-  damage: 60
-  projectileSpeed: 6
-  startAmmo: 3
+  damage: 8
+  startAmmo: 5
   currentAmmo: 0
   holdingHand: {fileID: 0}
   weaponName: Boomerang
+  weaponDescription: 
   weaponTexture: {fileID: 2800000, guid: 1a0f5c39c75c56d40becfae04ef40b95, type: 3}
   ammoText: {fileID: 0}
-  damageType: 1
+  damageType: 4
   animator: {fileID: 5859268650056289428}
+  upgradesHolder: {fileID: 0}
+  projectile: {fileID: 7924089026721829593, guid: 4964192795489bd499c7534aea76e055, type: 3}
+  shootPoint: {fileID: 1543679609430437840}
+  projectileSpeed: 6
   canThrow: 1
 --- !u!95 &5859268650056289428
 Animator:

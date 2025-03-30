@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4302627363347020627}
   - component: {fileID: 8354472384096218789}
   - component: {fileID: 8893486174751769401}
+  - component: {fileID: 7185927643619279750}
   m_Layer: 0
   m_Name: Throwing Knifes
   m_TagString: Untagged
@@ -68,19 +69,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334af9b511fbc0c43886c85b2eb80102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 2098097586935676206, guid: c9a3a53d18d41714894cc057b3a23e74, type: 3}
-  shootPoint: {fileID: 488418040945844149}
   timeBetweenAttacks: 0.25
-  damage: 30
-  projectileSpeed: 10
-  startAmmo: 16
+  damage: 14
+  startAmmo: 14
   currentAmmo: 0
   holdingHand: {fileID: 0}
   weaponName: Throwing Knife
-  weaponTexture: {fileID: 2800000, guid: c155ce9a6417c8040a50855df4ea70d8, type: 3}
+  weaponDescription: 
+  weaponTexture: {fileID: 2800000, guid: ba1273d152b5f824ab4bbd90620a5a90, type: 3}
   ammoText: {fileID: 0}
-  damageType: 2
-  animator: {fileID: 0}
+  damageType: 3
+  animator: {fileID: 7185927643619279750}
+  upgradesHolder: {fileID: 0}
+  projectile: {fileID: 2098097586935676206, guid: c9a3a53d18d41714894cc057b3a23e74, type: 3}
+  shootPoint: {fileID: 488418040945844149}
+  projectileSpeed: 10
+--- !u!95 &7185927643619279750
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37349491407922846}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d3f2b66d6b01440479c1d19b95196b7d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &488418040945844149
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,13 +163,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6801380169104124662}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: 0.6830128, y: 0.18301243, z: -0.18301235, w: 0.68301284}
+  m_LocalPosition: {x: -0.11740127, y: 0, z: -0.02667546}
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 4302627363347020627}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -30}
 --- !u!23 &1684296291475823434
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -197,4 +222,4 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6801380169104124662}
-  m_Mesh: {fileID: 4702925393065980420, guid: 616141c9711ce8547bac89da7b858843, type: 3}
+  m_Mesh: {fileID: 4702925393065980420, guid: 50b8e4536f58a164f9ca81b9a4294204, type: 3}

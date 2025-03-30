@@ -23,6 +23,7 @@ public abstract class Weapon : MonoBehaviour
     protected void Start()
     {
         currentAmmo = startAmmo;
+        timeSinceLastAttack = timeBetweenAttacks;
         player = FindAnyObjectByType<Player>();
     }
 

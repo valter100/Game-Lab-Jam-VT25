@@ -123,13 +123,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenAttacks: 1
-  damage: 10
+  damage: 8
   startAmmo: 10
   currentAmmo: 0
   holdingHand: {fileID: 0}
   weaponName: Sword
   weaponDescription: 
-  weaponTexture: {fileID: 2800000, guid: 8d308eda712953b4baef7b416fa403b5, type: 3}
+  weaponTexture: {fileID: 2800000, guid: 37baa6a3f55c8a449ba9a80194ac5718, type: 3}
   ammoText: {fileID: 0}
   damageType: 3
   animator: {fileID: 3133588005289637342}
