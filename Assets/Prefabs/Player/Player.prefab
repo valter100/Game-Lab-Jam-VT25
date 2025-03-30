@@ -471,7 +471,7 @@ MonoBehaviour:
   fireAction: {fileID: 4120918548165711463, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   weapon: {fileID: 0}
   ammoText: {fileID: 0}
-  handType: 0
+  handType: 1
 --- !u!1 &5837044649511017786
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,6 +530,7 @@ MonoBehaviour:
   rotationSensitivity: 0.25
   playerCamera: {fileID: 2614214508011294087}
   nextWeaponImage: {fileID: 0}
+  weaponImageAnim: {fileID: 0}
   nextWeaponName: {fileID: 0}
   level: 1
   expRequiredToLevel: 0
